@@ -1,0 +1,33 @@
+.photo{
+ border: 4px solid #fff;
+ margin-bottom: 10px;
+ overflow: hidden;
+ z-index: 1 ;
+}
+.photo img{
+ max-width: 400px;
+ width: 100%;
+ object-fit: cover;
+ transition: transform .3s ease-in;
+ cursor: pointer;
+ z-index: 1;
+}
+
+.photo img:hover{
+ transform: scale(1.1);
+}
+
+button.confirm-delete.dlt-btn {
+    background: #3c8dbc;
+    color: #fff;
+    padding: 5px;
+    cursor: pointer;
+    z-index: 2;
+}
+center button.dlt-btn {
+    background: #3c763d;
+    width: 100%;
+    padding: 5px;
+    border-radius: 0;
+    color: #fff;
+}
