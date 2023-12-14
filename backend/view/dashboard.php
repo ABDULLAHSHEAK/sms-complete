@@ -180,15 +180,12 @@ $name=$row['i_name'];
 <?php
 include_once('../controller/config.php');
 
-$sql1="SELECT count(id) FROM student WHERE _status=''";
+// $sql1="SELECT count(id) FROM student WHERE _status=''";
 $total_count1=0;
 
-$result1=mysqli_query($conn,$sql1);
-$row1=mysqli_fetch_assoc($result1);
-$total_count1=$row1['count(id)'];
 
 ?>               
-              <span class="info-box-number"><?php echo $total_count1; ?></span>
+              <span class="info-box-number">55</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -212,7 +209,7 @@ $row2=mysqli_fetch_assoc($result2);
 $total_count2=$row2['count(id)'];
 
 ?> 
-              <span class="info-box-number"><?php echo $total_count2; ?></span>
+              <span class="info-box-number"><?php echo "22" ?></span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -234,16 +231,9 @@ include_once('../controller/config.php');
 $current_year=date("Y");
 $current_month=date("F");
 
-$sql3="SELECT SUM(paid) FROM student_payment WHERE year='$current_year' AND month='$current_month'";
-$monthly_income=0;
-
-$result3=mysqli_query($conn,$sql3);
-$row3=mysqli_fetch_assoc($result3);
-$monthly_income=$row3['SUM(paid)'];
-
 ?>             
         
-              <span class="info-box-number"><small>$</small><?php echo $monthly_income; ?></span>
+              <span class="info-box-number"><small>$</small><?php echo '44' ?></span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -255,20 +245,9 @@ $monthly_income=$row3['SUM(paid)'];
             <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Total Income</span>
-<?php
-include_once('../controller/config.php');
-
-$sql4="SELECT SUM(paid) FROM student_payment";
-$total_income=0;
-
-$result4=mysqli_query($conn,$sql4);
-$row4=mysqli_fetch_assoc($result4);
-$total_income=$row4['SUM(paid)'];
-
-?>             
+              <span class="info-box-text">Total Income</span>          
         
-              <span class="info-box-number"><small>$</small><?php echo $total_income; ?></span>
+              <span class="info-box-number"><small>$</small><?php echo '55' ?></span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -279,75 +258,9 @@ $total_income=$row4['SUM(paid)'];
       <!-- /.row -->
       <h5><?php echo $name; ?>,<strong><span style="color:#cf4ed4;"> Welcome back! </span></strong></h5>
 	    
-		<div class="row" id="table1"><!--MSK-000132-1-->    
-        	<div class="col-md-8">
-           		<center><h4 class="box-title">Monthly Income</h4></center>
-                <canvas id="barChart" width="800" height="438"></canvas>
-  			</div>
-
-<script>
-
-function showBarChart(monthly_income){	
- 
-	var monthly_income1 = JSON.parse("[" + monthly_income + "]");
-
-	new Chart(document.getElementById("barChart"), {
-		type: 'bar',
-		data: {
-			
-		   labels: ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"],
-		  datasets: [
-			{
-			  label: "Monthly Income($)",
-			  backgroundColor: ["#e80a68", "#d74340","#8e3d87","#40b9d7","#26ab8d","#7e5c3e", "#3e447e","#638e3d","#766677","#f35df8","#e49e23","#f68b98"],
-			  data: monthly_income1
-				//data: [12, 19, 3, 5, 10, 3,12, 19, 10, 5, 10, 15],
-			}
-		  ]
-		},
-		options: {
-		  legend: { display: false },
-		  title: {
-			display: true,
-			text: ''
-		  },
-		  scales: {
-				yAxes: [{
-					ticks: {
-						beginAtZero:true
-					}
-				}]
-			}
-		}
-	});
-
-};
-</script>
-
-<?php
-include_once('../controller/config.php');
-$current_year=date("Y");
-$prefix="";
-$monthly_income1="";
-$monthly_income2=0;
-
-$month=array("January","February","March","April","May","June","July","August","September","October","November","December");
-
-for($i=0; $i<count($month); $i++){
-	
-	$sql="SELECT SUM(paid) FROM student_payment WHERE year='$current_year' AND month='$month[$i]'";
-	$result=mysqli_query($conn,$sql);
-	$row=mysqli_fetch_assoc($result);
-	$monthly_income1.=$prefix.'"'.$row['SUM(paid)'].'"';
-	$prefix=',';
-	
-}
-
-echo "<script>showBarChart('$monthly_income1');</script>";
-
-?>            
+		<div class="row" id="table1">
           
-        	<div class="col-md-4">
+        	<div class="col-md-10">
                 <div id="calendar-container">
                 	<div id="calendar-header">
                     	<center><h4><span id="calendar_month_year"></span> <?php echo $current_year; ?> </h4></center>
@@ -371,11 +284,11 @@ var m2 = 0;
 
 function ShowEvents(status,my_index,my_type){
 	
-	var d = new Date();    //new Date('2017','08','25');
+	var d = new Date();    //new Date('2023','08','25');
 	var month_name = ['January','February','March','April','May','June','July','August','September','Octomber','November','December'];	
 		
 	var m1 = d.getMonth(); //0-11
-	var y1 = d.getFullYear(); //2017
+	var y1 = d.getFullYear(); //2023
 		
 	if(status == 'K'){
 		var m3 = m1;
@@ -414,17 +327,17 @@ function ShowEvents(status,my_index,my_type){
 				var event_id = $('#event_id').val().split(',');
 			
 				var month = m3; //0-11
-				var year = y1; //2017 
+				var year = y1; //2023 
 				var first_date = month_name[month] + " " + 1 + " " + year;
 				
 				var tmp = new Date(first_date).toDateString();
-				// Tue Aug 01 2017...
+				// Tue Aug 01 2023...
 				
 				var first_day = tmp.substring(0,3); //Thu
 				var day_name = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 				var day_no = day_name.indexOf(first_day);  //4
 				var days = new Date(year, month+1, 0).getDate(); //31
-				// Thu Aug 31 2017...
+				// Thu Aug 31 2023...
 				
 				var calendar = get_calendar(day_no,days);
 				
@@ -590,53 +503,6 @@ echo '<script>','ShowEvents("K",'.$my_index.',"'.$my_type.'");','</script>';
 
 ?>
 
-	<div class="row" >
-    	<div class="col-md-10" ><!-- left column -->
-        	<center><h4>Monthly Student Registration</h4></center>
-            
-            <canvas id="lineChart" width="800" height="450"></canvas>
-         </div>  
-     </div>
-		
-<script>
-                    
-function showLineChart(monthly_std_reg){	
- 
-	var monthly_std_reg1 = JSON.parse("[" + monthly_std_reg + "]");
- 
-	new Chart(document.getElementById("lineChart"), {
-		type: 'line',
-		data: {
-		  labels: ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"],
-		  datasets: [
-			{
-			  label: "New Student Registration",
-			  borderColor: "#00c0ef",
-			  fill: false,
-			  data: monthly_std_reg1
-			 
-			}
-		  ]
-		},
-		options: {
-		  legend: { display: false },
-		  title: {
-			display: true,
-			text: ''
-		  },
-		  scales: {
-				yAxes: [{
-					ticks: {
-						beginAtZero:true
-					}
-				}]
-			}
-		}
-	});
-
-};
-</script>
-
 <?php
 include_once('../controller/config.php');
 $current_year=date("Y");
@@ -645,14 +511,6 @@ $monthly_std_reg="";
 
 $month=array("January","February","March","April","May","June","July","August","September","October","November","December");
 
-for($i=0; $i<count($month); $i++){
-	$sql="SELECT COUNT(id) FROM student WHERE reg_year='$current_year' AND reg_month='$month[$i]' AND _status=''";
-	$result=mysqli_query($conn,$sql);
-	$row=mysqli_fetch_assoc($result);
-	$monthly_std_reg.=$prefix.'"'.$row['COUNT(id)'].'"';
-	$prefix=',';
-	
-}
 
 echo "<script>showLineChart('$monthly_std_reg');</script>";
 

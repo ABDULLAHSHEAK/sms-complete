@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../dist/css/editor.css">
    <!-- DataTables -->
     <link rel="stylesheet" href="../plugins/datatables/dataTables.bootstrap.css">
-    <link rel="icon" href="../uploads/logo3.png">
+    <link rel="icon" href="../uploads/fav1.png">
 
     <!-- -------- custom css ------------    -->
     <link rel="stylesheet" href="../bootstrap/css/custom.css">

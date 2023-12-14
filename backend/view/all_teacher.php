@@ -128,6 +128,7 @@ if(mysqli_num_rows($result) > 0){
 	while($row=mysqli_fetch_assoc($result)){	
 	$count++;
 	$id=$row['id'];
+    $slug = $row['slug'];
     $create_at = date('d-m-Y',strtotime($row['reg_date']));
 ?>   
             <tr>
@@ -157,7 +158,7 @@ if(mysqli_num_rows($result) > 0){
 												<!-- ------ view button --------  -->
              <div style="margin-right: 5px;">
                 <form action="">
-                    <a href="#" class="btn btn-warning btn-xs">View</a>
+                    <a href="teacher_profile.php?teacher=<?=$slug?>" class="btn btn-warning btn-xs">View</a>
                 </form>
              </div>
 

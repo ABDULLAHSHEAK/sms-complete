@@ -2,10 +2,9 @@
 
 
 <div id="breadcrumb" class="hoc clear">
-  <h6 class="heading">Gallery</h6>
+  <h6 class="heading">Contact Us</h6>
   <ul>
     <li><a href="#">Home</a></li>
-    <li><a href="#">Pages</a></li>
     <li><a href="#">Contact Us</a></li>
   </ul>
 </div>

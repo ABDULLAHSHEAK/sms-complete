@@ -23,24 +23,24 @@
     <section id="introblocks">
       <ul class="nospace group grid-3">
         <li class="one_third">
-          <figure><a class="imgover" href="#"><img src="images/demo/backgrounds/p.jpg" alt=""></a>
+          <figure><a class="imgover" href="#"><img src="images/s.jpg" alt=""></a>
             <figcaption><a href="#">সভাপতি</a></figcaption>
           </figure>
         </li>
         <li class="one_third">
-          <figure><a class="imgover" href="#"><img src="images/demo/backgrounds/rao.jpg" alt=""></a>
+          <figure><a class="imgover" href="#"><img src="images/p.jpg" alt=""></a>
             <figcaption><a href="#">প্রধান শিক্ষক</a></figcaption>
           </figure>
         </li>
         <li class="one_third">
-          <figure><a class="imgover" href="#"><img src="images/demo/backgrounds/ci.jpg" alt=""></a>
+          <figure><a class="imgover" href="#"><img src="images/sub.jpg" alt=""></a>
             <figcaption><a href="#">সহকারি শিক্ষক </a></figcaption>
           </figure>
         </li>
       </ul>
     </section>
     <br>
-    
+
     <!-- ###------- notice section ----------- ### -->
     <?php include_once('components/notice.php') ?>
     <!-- ###------- notice section ----------- ### -->

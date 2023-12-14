@@ -2,13 +2,15 @@
 <html lang="">
 
 <head>
-  <title>সিরাজগঞ্জ সরকারি প্রাথমিক বিদ্যালয়</title>
+  <title>MAS-IT-ACADEMY Complete School Manegment System (MAS-SCHOOL)</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
   <link rel="stylesheet" href="layout/styles/other.css">
   <!-- Latest compiled and minified CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- ------ icone ----------   -->
+  <link rel="icon" type="image/x-icon" href="images/fav1.png">
 </head>
 
 <body id="top">
@@ -34,8 +36,8 @@
       </div>
       <div class="fl_right">
         <ul class="nospace">
-          <li><a href="#"><i class="fas fa-home"></i></a></li>
-          <li><a href="#" title="Help Centre"><i class="far fa-life-ring"></i></a></li>
+          <li><a href="index.php"><i class="fas fa-home"></i></a></li>
+          <li><a href="contact.php" title="Help Centre"><i class="far fa-life-ring"></i></a></li>
           <li><a href="#" title="Login"><i class="fas fa-sign-in-alt"></i></a></li>
           <li><a href="#" title="Sign Up"><i class="fas fa-edit"></i></a></li>
           <li id="searchform">
@@ -74,10 +76,10 @@
     </div>
   </div>
   <!-- menu bar code start -->
-  <div class="bgded overlay padtop" style="background-image:url('images/demo/backgrounds/front.jpg');">
+  <div class="bgded overlay padtop" style="background-image:url('images/demo/inst11.jpg');">
     <header id="header" class="hoc clear">
       <div id="logo" class="fl_left">
-        <h1><a href="index.php">SPI</a></h1>
+        <h1><a href="index.php">MAS-IT-A</a></h1>
       </div>
       <nav id="mainav" class="fl_right">
         <ul class="clear">
@@ -92,7 +94,7 @@
           </li>
           <li><a href="teacher.php">শিক্ষকমন্ডলী</a></li>
           <li><a href="student.php">শিক্ষার্থী</a>
-          
+
           <li><a class="" href="notice.php">নোটিশ</a>
           <li><a href="#" class="drop">একাডেমি </a>
             <ul>

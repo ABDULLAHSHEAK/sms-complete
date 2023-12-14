@@ -1,114 +1,143 @@
 <?php
-if(!isset($_SERVER['HTTP_REFERER'])){
-    // redirect them to your desired location
-    header('location:../index.php');
-    exit;
+if (!isset($_SERVER['HTTP_REFERER'])) {
+	// redirect them to your desired location
+	header('location:../index.php');
+	exit;
 }
 ?>
-<?php
-include_once('../controller/config.php');
-	
-$index=$_GET['std_index'];
+<?php include_once('head.php'); ?>
+<?php include_once('header_admin.php'); ?>
+<?php include_once('sidebar.php'); ?>
+<?php include_once('alert.php'); ?>
 
-$sql="SELECT * FROM student WHERE index_number='$index'";
-$result=mysqli_query($conn,$sql);
-$row=mysqli_fetch_assoc($result);
+<style>
+	.form-control-feedback {
 
-$i_name=$row['i_name'];
-$full_name=$row['full_name'];
-$image=$row['image_name'];
-$address=$row['address'];
-$gender=$row['gender'];
-$phone=$row['phone'];
-$email=$row['email'];
+		pointer-events: auto;
 
-$g_name=$row['g_name'];
-$g_address=$row['g_address'];
-$g_email=$row['g_email'];
-$g_phone=$row['g_phone'];
+	}
 
-?>
+	.msk-set-width-tooltip+.tooltip>.tooltip-inner {
 
-<div class="modal msk-fade" id="modalviewStudent" tabindex="-1" role="dialog" aria-labelledby="insert_alert1" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-	<div class="modal-dialog"><!--modal-dialog -->  
-		<div class="container col-lg-12 "><!--modal-content --> 
-      		<div class="row">
-        	<div class="col-md-12">
-            	<div class="panel"><!--panel bg-maroon--> 
-                	<div class="panel-heading bg-aqua-active">	
-                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                    	<h4 class="panel-title" id="hname"><?php echo $i_name; ?></h4>
-                    </div>				
-                    <div class="panel-body"><!--panel-body -->
-                    	<div class="row">
-                			<div class="col-md-3"> 
-                				<img id="photo2" alt="User Pic" src="../<?php echo $image; ?>" class="img-circle img-responsive"> 
-                			</div>
-                			<div class=" col-md-9"> 
-                  				<table class="table table-bordered table-striped">
-                    				<tbody>
-                      					<tr>
-                        					<td class="col-md-4">Full Name</td>
-                        					<td id="full_name"><?php echo $full_name; ?></td>
-                      					</tr>
-                      					<tr>
-                        					<td>Name With Initials</td>
-                        					<td id="i_name"><?php echo $i_name; ?> </td>
-                      					</tr>
-                             			<tr>
-                        					<td>Address</td>
-                        					<td id="address"><?php echo $address; ?> </td>
-                      					</tr>
-                        				<tr>
-                        					<td>Gender</td>
-                        					<td id="gender"><?php echo $gender; ?> </td>
-                      					</tr>
-                      					<tr>
-                        					<td>Email</td>
-                        					<td id="email"><?php echo $email; ?> </td>
-                      					</tr>
-                                        <tr>
-                        					<td>Phone Number</td>
-                        					<td id="phone"><?php echo $phone; ?> </td>
-                           
-                      					</tr>
-                                        <tr>
-                        					<td>Guardians Name</td>
-                        					<td id="g_name"><?php echo $g_name; ?> </td>
-                      					</tr>
-                        				<tr>
-                        					<td>Guardians Address</td>
-                        					<td id="g_address"><?php echo $g_address; ?> </td>
-                      					</tr>
-                      					<tr>
-                        					<td>Guardians Email</td>
-                        					<td id="g_email"><?php echo $g_email; ?> </td>
-                      					</tr>
-                                        <tr>
-                        					<td>Guardians Phone</td>
-                        					<td id="g_phone"><?php echo $g_phone; ?> </td>
-                      					</tr>
-                    				</tbody>
-                  				</table>
-                  			</div>
-                   		</div>
-                     </div>
-                     <div class="panel-footer">
-                    	<a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
-                        <span class="pull-right">
-                            <a href="#modalUpdateform" onClick="showModal(this)"  data-original-title="Edit this user" id="id3"   data-toggle="modal" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a><!--MSK-00151-->
-                        </span>
-                    </div>
-            	</div><!--/. panel--> 
-        	</div>
-		</div><!--/.row --> 
-    	</div><!--/.modal-content -->
-	</div><!--/.modal-dialog -->
-</div><!--/.modal -->  
+		min-width: 180px;
+	}
 
+	.msk-set-color-tooltip+.tooltip>.tooltip-inner {
 
+		min-width: 180px;
+		background-color: red;
+	}
+</style>
 
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+	<!-- Content Header (Page header) -->
+	<section class="content-header">
+		<h1>
+			My Profile
+			<small>Preview</small>
+		</h1>
+		<ol class="breadcrumb">
+			<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+			<li><a href="#">My Profile</a></li>
+		</ol>
+	</section>
 
+	<?php
+	include_once('../controller/config.php');
 
+	if (isset($_GET['student'])) {
+		$slug = $_GET['student'];
 
+		$sql = "SELECT * FROM student1 s LEFT JOIN class_room c ON s.class_name = c.id WHERE slug = '$slug' ";
+		$result = mysqli_query($conn, $sql);
+		$row = mysqli_fetch_assoc($result);
 
+		$create_at = date('d-m-Y', strtotime($row['created_at']));
+	}
+	?>
+
+	<section class="content">
+		<div class="row">
+			<div class="col-md-8">
+				<div class="panel"><!--panel bg-maroon-->
+					<div class="panel-heading bg-aqua-active">
+						<h4 class="panel-title" id="hname"><?php echo $row['full_name'] ?></h4>
+					</div>
+					<div class="panel-body"><!--panel-body -->
+						<div class="row" id="my_profile">
+							<div class="col-md-3">
+								<img id="photo2" alt="User Pic" src="student/<?php echo $row['img'] ?>" class="img-circle img-responsive">
+							</div>
+							<div class=" col-md-9">
+								<table class="table table-bordered table-striped table-responsiv">
+									<tbody>
+										<tr>
+											<td class="col-md-4">Full Name</td>
+											<td> <?php echo $row['full_name'] ?> </td>
+										</tr>
+										<tr>
+											<td>Father`s Name</td>
+											<td><?php echo $row['fa_name'] ?> </td>
+										</tr>
+										<tr>
+											<td>Mother`s Name</td>
+											<td><?php echo $row['ma_name'] ?> </td>
+										</tr>
+										<tr>
+											<td>Student Phone</td>
+											<td><?php echo $row['student_phone'] ?> </td>
+										</tr>
+										<tr>
+											<td>Guardian Phone</td>
+											<td><?php echo $row['student_fa_phone'] ?> </td>
+										</tr>
+										<tr>
+											<td>Student Email</td>
+											<td><?php echo $row['email'] ?> </td>
+										</tr>
+										<tr>
+											<td>Address</td>
+											<td><?php echo $row['student_address'] ?> </td>
+										</tr>
+										<tr>
+											<td>Date Of Birth</td>
+											<td><?php echo $row['birth_date'] ?> </td>
+										</tr>
+										<tr>
+											<td>Gender</td>
+											<td><?php echo $row['gender'] ?> </td>
+										</tr>
+										<tr>
+											<td>Roll Number</td>
+											<td><?php echo $row['roll'] ?> </td>
+										</tr>
+										<tr>
+											<td>Reg Number</td>
+											<td><?php echo $row['reg'] ?> </td>
+										</tr>
+										<tr>
+											<td>Class</td>
+											<td><?php echo $row['name'] ?> </td>
+										</tr>
+										<tr>
+											<td>Data Insert Date</td>
+											<td><?php echo $create_at ?> </td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="panel-footer text-right" id="panel_footer">
+						<a href="all_student.php" class="btn btn-sm btn-warning">Back</a>
+						<span class="pull-right"></span>
+					</div>
+				</div><!--/. panel-->
+			</div>
+		</div><!--/.row -->
+	</section><!-- /.section -->
+
+</div><!-- /.content-wrapper -->
+
+<?php include_once('footer.php'); ?>

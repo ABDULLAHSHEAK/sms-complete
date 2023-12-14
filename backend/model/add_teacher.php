@@ -12,6 +12,7 @@ if (isset($_POST['submit'])) {
     $gender = $_POST["gender"];
     $phone = $_POST["phone"];
     $email = $_POST["email"];
+    $address = $_POST["address"];
     $slug =str_replace(" ","-", $_POST["full_name"]);
     $get_img_name = $_FILES['img']['name'];
     $tempName = $_FILES['img']['tmp_name'];
@@ -23,7 +24,7 @@ if (isset($_POST['submit'])) {
         $current_time = date('Y-m-d-H-i-s');
         $filename = $current_time . '_' . $get_img_name;
         $upload = 'teacher/' . $filename;
-        $query = "INSERT INTO teacher (full_name,title,about,gender,phone,email,slug,image_name) VALUES ('$full_name','$title','$about','$gender','$phone','$email','$slug','$filename')";
+        $query = "INSERT INTO teacher (full_name,title,about,gender,phone,email,address,slug,image_name) VALUES ('$full_name','$title','$about','$gender','$phone','$email','$address','$slug','$filename')";
         $run = mysqli_query($conn, $query);
         if ($run) {
             move_uploaded_file($tempName, $upload);

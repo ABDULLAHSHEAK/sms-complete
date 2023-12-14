@@ -4,9 +4,9 @@
     <div class="wrapper row5">
       <div id="copyright" class="hoc clear">
         <!-- ################################################################################################ -->
-        <p class="fl_left">Copyright &copy; 2024 - All Rights Reserved - <a href="https://www.facebook.com/mdabdullahsheakabir">Md Abdullah Shake</a></p>
+        <p class="fl_left">Copyright &copy; 2024 - All Rights Reserved - <a href="https://www.facebook.com/mdabdullahsheakabir">MAS-IT-ACADEMY</a></p>
         <p class="fl_right">Designe by <a target="_blank" href="https://www.rawahatalukder.com/abdullah"
-            title="Free Website Templates">Md Abdullah Shake</a></p>
+            title="Free Website Templates">MAS-IT-ACADEMY</a></p>
         <!-- ################################################################################################ -->
       </div>
     </div>
