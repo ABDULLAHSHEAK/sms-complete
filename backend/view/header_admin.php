@@ -88,7 +88,7 @@
                     <a href="admin_profile.php" class="btn btn-default btn-flat">Profile</a>
                   </div>
                   <div class="pull-right">
-                    <a href="login.php" class="btn btn-default btn-flat">Sign out</a>
+                    <a href="../model/logout.php" class="btn btn-default btn-flat">Sign out</a>
                   </div>
                 </li>
               </ul>

@@ -49,10 +49,11 @@
         <div class="fromright">
           <h1>CONTACT DETAILS</h1>
           <hr>
-          <p>Address :Sirajganj Sador , Sirajganj, Dhaka</p>
-          <i class="fas fa-phone"></i> 0175164286;<br>
-          <i class="fas fa-phone"></i> 01716235243;<br>
-          <i class="fa fa-envelope"></i> principal@gmail.com;
+          <p>বিদ্যালয় এর ঠিকানা: <?= $get_result['school_address'] ?></p>
+          <i class="fas fa-phone"></i> <?= $get_result['school_number1'] ?><br>
+          <i class="fas fa-phone"></i> <?= $get_result['school_number2'] ?><br>
+          <i class="fa fa-envelope"></i> <?= $get_result['school_email'] ?></br>
+          <i class="fa fa-envelope"></i> <?= $get_result['principal_email'] ?>
         </div>
       </div>
       <!-- ################################################################################################ -->

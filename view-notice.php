@@ -3,10 +3,10 @@
 <!-- ----------- breadcrumb section ----------  -->
 
 <div id="breadcrumb" class="hoc clear">
- <h6 class="heading">Our Goal</h6>
+ <h6 class="heading">View-Notice</h6>
  <ul>
   <li><a href="#">Home</a></li>
-  <li><a href="#">Our Goal</a></li>
+  <li><a href="#">View-Notice</a></li>
  </ul>
 </div>
 <!-- ################################################################################################ -->
@@ -16,6 +16,17 @@
 <?php include_once('components/dynamic-notice.php') ?>
 <!-- ###------- Dynamic notice section ----------- ### -->
 
+<?php
+include_once('backend/controller/config.php');
+if (isset($_GET['notice'])) {
+ $slug = $_GET['notice'];
+
+ $sql = "SELECT * FROM notice WHERE slug = '$slug' ";
+ $result = mysqli_query($conn, $sql);
+ $row = mysqli_fetch_assoc($result);
+ $create_at = date('d-m-Y', strtotime($row['created_at']));
+}
+?>
 <!-- ----------- Main section Start ----------  -->
 
 <div class="container">
@@ -26,8 +37,8 @@
      <h2>নোটিশ</h2>
     </div>
     <div class="card-body">
-     <h4><strong> <u>নোটিশ টাইটেল:-</u> </strong>গ্রিষ্মকালিন ছুটির নোটিশ<span>( ১/২/২০২৪ ) </span></h4>
-     <embed src="pdf/notice.pdf" width="800px" height="1000px" />
+     <h4 class="p-3"><strong> <u>নোটিশ টাইটেল:-</u> </strong><?= $row['title'] ?><span>( <?= $create_at ?> ) </span></h4>
+     <embed src="backend/view/notices/<?= $row['file'] ?>" width="800px" height="1000px" />
     </div>
    </div>
   </div>

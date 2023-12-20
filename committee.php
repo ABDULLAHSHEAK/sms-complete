@@ -53,6 +53,7 @@
                           while ($row = mysqli_fetch_assoc($result)) {
                             $count++;
                             $id = $row['id'];
+                            $slug = $row['slug'];
                             $create_at = date('d-m-Y', strtotime($row['reg_date']));
                         ?>
                             <tr>
@@ -66,7 +67,7 @@
                                   <!-- ------ view button --------  -->
                                   <div style="margin-right: 5px;">
                                     <form action="">
-                                      <a href="committe-profile.php" class="btn btn-warning btn-sm">View</a>
+                                      <a href="committe-profile.php?committe=<?=$slug?>" class="btn btn-warning btn-sm">View</a>
                                     </form>
                                   </div>
 

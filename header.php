@@ -1,8 +1,25 @@
+<?php
+include('backend/controller/config.php');
+$get_query = "SELECT * FROM general_setting";
+$get_run = mysqli_query($conn, $get_query);
+$get_result = mysqli_fetch_assoc($get_run);
+
+$get_query2 = "SELECT * FROM school_setting";
+$get_run2 = mysqli_query($conn, $get_query2);
+$get_result2 = mysqli_fetch_assoc($get_run2);
+
+$get_query3 = "SELECT * FROM school_setting";
+$get_run3 = mysqli_query($conn, $get_query3);
+$get_result3 = mysqli_fetch_assoc($get_run3);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="">
 
 <head>
-  <title>MAS-IT-ACADEMY Complete School Manegment System (MAS-SCHOOL)</title>
+  <title><?= $get_result['site_title'] ?></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
@@ -65,9 +82,9 @@
       </div>
       <div class="col-lg-8 col-12 text-center">
         <div class="block clear school_info">
-          <h1>সিরাজগঞ্জ সরকারি প্রাথমিক বিদ্যালয় </h1>
-          <h3>সিরাজগঞ্জ, ঢাকা, বাংলাদেশ - <strong> স্থাপিত - </strong> ১৯৯৩ </h3>
-          <h3>ইআইআইএন নং- ৫৮৪৯৫২, স্কুল কোড নং- ২০৫৮</h3>
+          <h1><?= $get_result['school_name'] ?></h1>
+          <h3><?= $get_result['school_address'] ?> - <strong> স্থাপিত - </strong> <?= $get_result['establish_year'] ?> </h3>
+          <h3>ইআইআইএন নং- <?= $get_result['eiin_no'] ?>, স্কুল কোড নং- <?= $get_result['school_code'] ?></h3>
         </div>
       </div>
       <div class="col-lg-2 col-12 text-center">
@@ -79,7 +96,7 @@
   <div class="bgded overlay padtop" style="background-image:url('images/demo/inst11.jpg');">
     <header id="header" class="hoc clear">
       <div id="logo" class="fl_left">
-        <h1><a href="index.php">MAS-IT-A</a></h1>
+        <h1><a href="index.php"><?= $get_result['menu_text'] ?></a></h1>
       </div>
       <nav id="mainav" class="fl_right">
         <ul class="clear">

@@ -52,6 +52,7 @@
                 while ($row = mysqli_fetch_assoc($result)) {
                   $count++;
                   $id = $row['id'];
+                  $slug = $row['slug'];
                   $create_at = date('d-m-Y', strtotime($row['created_at']));
                   ?>
 										<tr>
@@ -59,7 +60,7 @@
 											<td><?php echo $row['full_name']; ?></td>
 											<td><?php echo $row['name']; ?></td>
 											<td><img src="backend/view/student/<?php echo $row['img']; ?>" alt="Teacher Photo" style="width: 50px;"></td>
-                      <td><a href="#" class="btn btn-outline-primary btn-sm">View</a></td>
+                      <td><a href="student-profile.php?students=<?=$slug?>" class="btn btn-outline-primary btn-sm">View</a></td>
 
           <?php }
               }?>

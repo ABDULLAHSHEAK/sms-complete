@@ -3,6 +3,7 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,6 +16,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+  <!-- --------- popup toastr -------- -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <!-- --------- popup toastr -------- -->
   <!-- Theme style -->
   <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -24,7 +31,7 @@
   <link rel="stylesheet" href="../plugins/iCheck/flat/blue.css">
   <!-- Bootstrap Color Picker -->
   <link rel="stylesheet" href="../plugins/colorpicker/bootstrap-colorpicker.min.css">
-  
+
   <!-- jvectormap -->
   <link rel="stylesheet" href="../plugins/jvectormap/jquery-jvectormap-1.2.2.css">
   <!-- Date Picker -->
@@ -34,59 +41,59 @@
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <link rel="stylesheet" href="../dist/css/editor.css">
-   <!-- DataTables -->
-    <link rel="stylesheet" href="../plugins/datatables/dataTables.bootstrap.css">
-    <link rel="icon" href="../uploads/fav1.png">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../plugins/datatables/dataTables.bootstrap.css">
+  <link rel="icon" href="../uploads/fav1.png">
 
-    <!-- -------- custom css ------------    -->
-    <link rel="stylesheet" href="../bootstrap/css/custom.css">
-    
-    <!-- jQuery 2.1.4 --> 
-    <script src="../plugins/jQuery/jQuery-2.1.4.min.js"></script>
-    <!-- Bootstrap 3.3.5 -->
-    <script src="../bootstrap/js/bootstrap.min.js"></script>
-    <!-- DataTables -->
-    <script src="../plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="../plugins/datatables/dataTables.bootstrap.min.js"></script>
-    <!-- iCheck 1.0.1 -->
-    <script src="../plugins/iCheck/icheck.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="../dist/js/app.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="../dist/js/demo.js"></script>
-   	<!-- Chart JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.js"> </script> 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"> </script>
-    <!-- Select2 -->
-    <script src="../plugins/select2/select2.full.min.js"></script>
-    <!-- InputMask -->
-    <script src="../plugins/input-mask/jquery.inputmask.js"></script>
-    <script src="../plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-    <script src="../plugins/input-mask/jquery.inputmask.extensions.js"></script>
-    <!-- date-range-picker -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
-    <script src="../plugins/daterangepicker/daterangepicker.js"></script>
+  <!-- -------- custom css ------------    -->
+  <link rel="stylesheet" href="../bootstrap/css/custom.css">
 
-    <!-- ---- text editor cdn -----  -->
-    <script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>
+  <!-- jQuery 2.1.4 -->
+  <script src="../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+  <!-- Bootstrap 3.3.5 -->
+  <script src="../bootstrap/js/bootstrap.min.js"></script>
+  <!-- DataTables -->
+  <script src="../plugins/datatables/jquery.dataTables.min.js"></script>
+  <script src="../plugins/datatables/dataTables.bootstrap.min.js"></script>
+  <!-- iCheck 1.0.1 -->
+  <script src="../plugins/iCheck/icheck.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="../dist/js/app.min.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="../dist/js/demo.js"></script>
+  <!-- Chart JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.js"> </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"> </script>
+  <!-- Select2 -->
+  <script src="../plugins/select2/select2.full.min.js"></script>
+  <!-- InputMask -->
+  <script src="../plugins/input-mask/jquery.inputmask.js"></script>
+  <script src="../plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+  <script src="../plugins/input-mask/jquery.inputmask.extensions.js"></script>
+  <!-- date-range-picker -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+  <script src="../plugins/daterangepicker/daterangepicker.js"></script>
 
-    <script src="../dist/js/editor.js"></script>
-   	
-    <!-- page script -->
-    <script>
-      $(function () {
-        $("#example1").DataTable();
-        $('#example2').DataTable({
-          "paging": true,
-          "lengthChange": false,
-          "searching": false,
-          "ordering": true,
-          "info": true,
-          "autoWidth": false
-        });
+  <!-- ---- text editor cdn -----  -->
+  <script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>
+
+  <script src="../dist/js/editor.js"></script>
+
+  <!-- page script -->
+  <script>
+    $(function() {
+      $("#example1").DataTable();
+      $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false
       });
-    </script><!-- Here is the End of page script--> 
-    
+    });
+  </script><!-- Here is the End of page script-->
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>

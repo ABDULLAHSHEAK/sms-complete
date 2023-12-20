@@ -47,7 +47,7 @@
                               <?= $title ?>
                               <span><?= "( " . $date . " )" ?></span>
                               <span>
-                                <a href="view-syllabus.php">দেখুন</a>
+                                <a href="view-syllabus.php?syllabus=<?=$row['slug']?>">দেখুন</a>
                               </span>
                             </li>
                         <?php }

@@ -1,26 +1,25 @@
 <img src="images/footertopnew.png" alt="">
- <div class="bgded overlay;">
-    <!-- ################################################################################################ -->
-    <div class="wrapper row5">
-      <div id="copyright" class="hoc clear">
-        <!-- ################################################################################################ -->
-        <p class="fl_left">Copyright &copy; 2024 - All Rights Reserved - <a href="https://www.facebook.com/mdabdullahsheakabir">MAS-IT-ACADEMY</a></p>
-        <p class="fl_right">Designe by <a target="_blank" href="https://www.rawahatalukder.com/abdullah"
-            title="Free Website Templates">MAS-IT-ACADEMY</a></p>
-        <!-- ################################################################################################ -->
-      </div>
+<div class="bgded overlay;">
+  <!-- ################################################################################################ -->
+  <div class="wrapper row5">
+    <div id="copyright" class="hoc clear">
+      <!-- ################################################################################################ -->
+      <p class="fl_left">Copyright &copy; <?= $current_year ?> - All Rights Reserved - <a href="<?= $get_result['footer_url'] ?>"><?= $get_result['footer'] ?></a></p>
+      <p class="fl_right">Designe & Develop by <a target="_blank" href="https://www.facebook.com/masitacademy" title="Free Website Templates">MAS-IT-ACADEMY</a></p>
+      <!-- ################################################################################################ -->
     </div>
-
   </div>
-  <!-- End Bottom Background Image Wrapper -->
 
-  <a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
-  <!-- JAVASCRIPTS -->
-  <script src="layout/scripts/jquery.min.js"></script>
-  <script src="layout/scripts/jquery.backtotop.js"></script>
-  <script src="layout/scripts/jquery.mobilemenu.js"></script>
-  <script src="layout/scripts/app.js"></script>
-  <!-- Latest compiled JavaScript -->
+</div>
+<!-- End Bottom Background Image Wrapper -->
+
+<a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
+<!-- JAVASCRIPTS -->
+<script src="layout/scripts/jquery.min.js"></script>
+<script src="layout/scripts/jquery.backtotop.js"></script>
+<script src="layout/scripts/jquery.mobilemenu.js"></script>
+<script src="layout/scripts/app.js"></script>
+<!-- Latest compiled JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

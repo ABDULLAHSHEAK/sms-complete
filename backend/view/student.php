@@ -229,7 +229,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 									<label>Registration Number </label>
 								</div>
 								<div class="col-xs-4" id="divPhone1">
-									<input type="tel" class="form-control" placeholder="Student Roll" name="reg" id="phone" autocomplete="off">
+									<input type="tel" class="form-control" placeholder="Student Reg" name="reg" id="phone" autocomplete="off">
 								</div>
 							</div>
 							<!-- -------- Class -------------  -->

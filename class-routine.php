@@ -40,6 +40,7 @@
                         if (mysqli_num_rows($result) > 0) {
                           while ($row = mysqli_fetch_assoc($result)) {
                             $title = $row['routing_title'];
+                            
                             $date = date('d-m-Y', strtotime($row['date']));
                         ?>
                             <li>
@@ -47,7 +48,7 @@
                               <?= $title ?>
                               <span><?= "( " . $date . " )" ?></span>
                               <span>
-                                <a href="#">দেখুন</a>
+                                <a href="view-routine.php?routine=<?=$row['slug']?>">দেখুন</a>
                               </span>
                             </li>
                         <?php }

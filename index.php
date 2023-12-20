@@ -1,8 +1,10 @@
-<?php include_once("header.php"); ?>
+<?php
+include_once("header.php"); 
+?>
 <div id="pageintro" class="hoc clear">
   <!-- ################################################################################################ -->
   <article>
-    <h3 class="heading">সিরাজগঞ্জ সরকারি প্রাথমিক বিদ্যালয়</h3>
+    <h3 class="heading"><?= $get_result['school_name'] ?></h3>
     <p>
       Government of the People's Republic of Bangladesh.</p>
     <footer>

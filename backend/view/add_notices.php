@@ -1,16 +1,16 @@
 <?php include('../controller/config.php'); ?>
 <?php
 // session_start();
-if(!isset($_SERVER['HTTP_REFERER'])){
+if (!isset($_SERVER['HTTP_REFERER'])) {
     // redirect them to your desired location
     header('location:../index.php');
     exit;
 }
-$post_publis_alert = "";
+// $post_publis_alert = "";
 $file_error = '';
 if (isset($_POST['add_notice'])) {
     $notice_title = $_POST['title'];
-    $slug = str_replace(' ','-', $_POST['title']);
+    $slug = str_replace(' ', '-', $_POST['title']);
     $get_file_name = $_FILES['pdf']['name'];
     $tempName = $_FILES['pdf']['tmp_name'];
     $fileNameParts = explode('.', $_FILES['pdf']['name']);
@@ -25,8 +25,10 @@ if (isset($_POST['add_notice'])) {
         $run = mysqli_query($conn, $query);
         if ($run) {
             move_uploaded_file($tempName, $upload);
-            // header('Location: add_notices.php'); // Redirect should occur before any output
-          		    $post_publis_alert = "Notice Added Succesfully";
+            // $post_publis_alert = "Notice Added Succesfully";
+            $_SESSION['notice_add'] = 'add';
+            header('Location: add_notices.php'); // Redirect should occur before any output
+            // session_destroy('$alert');
         } else {
             echo "error";
         }
@@ -47,29 +49,42 @@ if (isset($_POST['add_notice'])) {
 <!-- ----------- breadcrumb -------------------   -->
 <!-- ----------- breadcrumb -------------------   -->
 <div class="content-wrapper">
-     <section class="content-header">
-    	<h1>
-        	Add New Notice
+    <section class="content-header">
+        <h1>
+            Add New Notice
             <small>Preview</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="dashboard.php"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="#">Add Notice</a></li>
         </ol>
-	</section>
-<!-- ----------- breadcrumb -------------------   -->
-<!-- ----------- breadcrumb -------------------   -->
+    </section>
+    <!-- ----------- breadcrumb -------------------   -->
+    <!-- ----------- breadcrumb -------------------   -->
 
-	<section class="content"> 
-    	<div class="row">
-        	<div class="col-md-10">
-            	<div class="panel"><!--panel bg-maroon--> 
-                	<div class="panel-heading bg-aqua-active">	
-																		
-                    	<div class="row">
+    <section class="content">
+        <div class="row">
+            <div class="col-md-10">
+                <?php
+
+                // if ($_SESSION['notice_add'] = "add") {
+                //     echo " <script>
+                //     $(function() {
+                //     toastr.success('Success')
+                //     });
+                //     </script>";
+                // }
+                // unset($_SESSION['notice_add']);
+
+                // session_destroy();
+                ?>
+                <div class="panel"><!--panel bg-maroon-->
+                    <div class="panel-heading bg-aqua-active">
+
+                        <div class="row">
                             <div class="col-lg-10">
                                 <h3 class="text-white">Notice Add</h3>
-																																
+
                             </div>
                             <div class="col-lg-2">
                                 <h3>
@@ -79,37 +94,45 @@ if (isset($_POST['add_notice'])) {
                                 </h3>
                             </div>
                         </div>
-                    </div>				
+                    </div>
                     <div class="panel-body"><!--panel-body -->
-                  
 
-                           	<div class="box box-primary">
-                	<!-- //MSK-00097 form start -->
-                	<form role="form" action="" method="post" enctype="multipart/form-data">             
-																				        <div class="box-body">
-                			<div class="form-group" id="divName">
-																							<h4><?php echo  $post_publis_alert ?></h4>
-                    			<label for="title">Title*</label>
-                      			<input type="text" class="form-control" id="title" placeholder="Notice Title" name="title" autocomplete="off" required>                    
-                    		</div>
-                    		<div class="form-group" id="divStudentCount">
-                      			<label for="">Notice* (PDF File Only)</label>
-                                <input type="file" class="form-control" id="title" name="pdf" autocomplete="off" accept="pdf" required></input>
-																																<h4 style="color: red;"><?php echo $file_error;?></h4>
-                    		</div>
-                		</div><!-- /.box-body -->
-                		<div class="box-footer">
-                    		<button type="submit" class="btn btn-primary" id="btnSubmit" name="add_notice">Submit</button>
-                 		</div>
-                	</form>
-              	</div><!-- /.box -->
 
-                     </div>
-            	</div><!--/. panel--> 
-        	</div>
-		</div><!--/.row --> 
-	</section><!-- /.section -->
-	
+                        <div class="box box-primary">
+                            <!-- //MSK-00097 form start -->
+                            <form role="form" action="" method="post" enctype="multipart/form-data">
+                                <div class="box-body">
+                                    <div class="form-group" id="divName">
+                                        <!-- <h4><?php echo  $post_publis_alert ?></h4> -->
+                                        <label for="title">Title*</label>
+                                        <input type="text" class="form-control" id="title" placeholder="Notice Title" name="title" autocomplete="off" required>
+                                    </div>
+                                    <div class="form-group" id="divStudentCount">
+                                        <label for="">Notice* (PDF File Only)</label>
+                                        <input type="file" class="form-control" id="title" name="pdf" autocomplete="off" accept="pdf" required></input>
+                                        <h4 style="color: red;"><?php echo $file_error; ?></h4>
+                                    </div>
+                                </div><!-- /.box-body -->
+                                <div class="box-footer">
+                                    <button type="submit" class="btn btn-primary" id="btnSubmit" name="add_notice">Submit</button>
+                                </div>
+                            </form>
+                        </div><!-- /.box -->
+
+                    </div>
+                </div><!--/. panel-->
+            </div>
+        </div><!--/.row -->
+    </section><!-- /.section -->
+
 </div>
+<script>
+    let btn = document.getElementById('btnSubmit');
+    btn.addEventListener('click', function(e) {
+        $(function() {
+            toastr.success('Success')
+        });
+    });
+</script>
 
-<?php include_once('footer.php');?>
+<?php include_once('footer.php'); ?>

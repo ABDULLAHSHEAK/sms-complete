@@ -1,4 +1,3 @@
-
 <!-- ------------- dynamic notice ------------   -->
 <?php include_once("dynamic-notice.php"); ?>
 <!-- ------------- dynamic notice ------------   -->
@@ -7,99 +6,28 @@
 <!-- ################################################################################################ -->
 
 <div class="table">
- <h2>নোটিশ বোর্ড</h2>
- <ol>
-  <li>
-   <i class="fas fa-check" style="color:green"></i>
-   ডিপ্লোমা-ইন-ইন্জিনিয়ারিং শিক্ষাক্রমের ১ম ও ৩য় পর্ব সমাপনী পরীক্ষা- ২০২২ এর ছাত্র/ছাত্রীদের ফলাফল
-   <span>18 jan 2022</span>
-   <span>
-    <a href="view-notice.php">দেখুন</a>
-   </span>
-  </li>
-  <li>
-   <i class="fas fa-check" style="color:green"></i>
-   ২০২২ সনের ডিপ্লোমা-ইন ইন্জি: শিক্ষাক্রমেরর ১ম ৩য় পর্বের ব্যবহারিক সমাপনী পরীক্ষার সময়সূচী- (ET ,ENT)31 Oct 20
-   <span>18 jan 2022</span>
-   <span>
-    <a href="view-notice.php">দেখুন</a>
-   </span>
-  </li>
-  <li>
-   <i class="fas fa-check" style="color:green"></i>
-   ২০২২ সনের ডিপ্লোমা-ইন ইন্জি: শিক্ষাক্রমেরর ১ম ৩য় পর্বের ব্যবহারিক সমাপনী পরীক্ষার সময়সূচী- (CMT,CT,RAC)
-   <span>18 jan 2022</span>
-   <span>
-    <a href="view-notice.php">দেখুন</a>
-   </span>
-  </li>
-  <li>
-   <i class="fas fa-check" style="color:green"></i>
-   Sirajganj plytechnic institute
-   <span>18 jan 2022</span>
-   <span>
-    <a href="view-notice.php">দেখুন</a>
-   </span>
-  </li>
-
-  <li>
-   <i class="fas fa-check" style="color:green"></i>
-   ২০২২ সনের ডিপ্লোমা-ইন ইন্জি: শিক্ষাক্রমেরর ১ম ৩য় পর্বের ব্যবহারিক সমাপনী পরীক্ষার সময়সূচী- (CMT,CT,RAC)
-   <span>18 jan 2022</span>
-   <span>
-    <a href="view-notice.php">দেখুন</a>
-   </span>
-  </li>
-  <li>
-   <i class="fas fa-check" style="color:green"></i>
-   Sirajganj plytechnic institute
-   <span>18 jan 2022</span>
-   <span>
-    <a href="view-notice.php">দেখুন</a>
-   </span>
-  </li>
-
-  <li>
-   <i class="fas fa-check" style="color:green"></i>
-   ২০২২ সনের ডিপ্লোমা-ইন ইন্জি: শিক্ষাক্রমেরর ১ম ৩য় পর্বের ব্যবহারিক সমাপনী পরীক্ষার সময়সূচী- (CMT,CT,RAC)
-   <span>18 jan 2022</span>
-   <span>
-    <a href="view-notice.php">দেখুন</a>
-   </span>
-  </li>
-  <li>
-   <i class="fas fa-check" style="color:green"></i>
-   Sirajganj plytechnic institute
-   <span>18 jan 2022</span>
-   <span>
-    <a href="view-notice.php">দেখুন</a>
-   </span>
-  </li>
-
-  <li>
-   <i class="fas fa-check" style="color:green"></i>
-   ২০২২ সনের ডিপ্লোমা-ইন ইন্জি: শিক্ষাক্রমেরর ১ম ৩য় পর্বের ব্যবহারিক সমাপনী পরীক্ষার সময়সূচী- (CMT,CT,RAC)
-   <span>18 jan 2022</span>
-   <span>
-    <a href="view-notice.php">দেখুন</a>
-   </span>
-  </li>
-  <li>
-   <i class="fas fa-check" style="color:green"></i>
-   Sirajganj plytechnic institute
-   <span>18 jan 2022</span>
-   <span>
-    <a href="view-notice.php">দেখুন</a>
-   </span>
-  </li>
-
-  <li>
-   <i class="fas fa-check" style="color:green"></i>
-   ২০২২ সনের ডিপ্লোমা-ইন ইন্জি: শিক্ষাক্রমেরর ১ম ৩য় পর্বের ব্যবহারিক সমাপনী পরীক্ষার সময়সূচী- (CMT,CT,RAC)
-   <span>18 jan 2022</span>
-   <span>
-    <a href="view-notice.php">দেখুন</a>
-   </span>
-  </li>
- </ol>
+  <h2>নোটিশ বোর্ড</h2>
+  <ol>
+    <?php
+    include_once('backend/controller/config.php');
+    $sql = "SELECT * FROM notice ORDER BY created_at DESC LIMIT 8 ";
+    $result = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($result) > 0) {
+      while ($row = mysqli_fetch_assoc($result)) {
+        $title = $row['title'];
+        $slug = $row['slug'];
+        $create_at = date('d-m-Y', strtotime($row['created_at']));
+    ?>
+        <li>
+          <i class="fas fa-check" style="color:green"></i>
+          <?= $title ?>
+          <span><?= "( " . $create_at . " )" ?></span>
+          <span>
+            <a href="view-notice.php?notice=<?= $slug ?>">দেখুন</a>
+          </span>
+        </li>
+    <?php }
+    } ?>
+  </ol>
+  <h3> <a href="notice.php">সকল নোটিশ</a></h3>
 </div>

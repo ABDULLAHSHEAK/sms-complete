@@ -1,4 +1,9 @@
-<?php include_once('head.php'); ?>
+<?php
+if (isset($_SESSION["index_number"])) {
+	echo "<script>window.location.href='dashboard.php'</script>";
+	// header("Location:dashboard.php");
+}
+include_once('head.php'); ?>
 
 
 <style>

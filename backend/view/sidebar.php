@@ -1,4 +1,14 @@
 <!-- Left side column. contains the logo and sidebar -->
+<?php 
+if(!isset($_SESSION["index_number"])){
+  echo "<script>window.location.href='login.php'</script>";
+}
+// if (!isset($_SERVER['HTTP_REFERER'])) {
+//   // redirect them to your desired location
+//   header('location:../index.php');
+//   exit;
+// }
+?>
 <aside class="main-sidebar">
   <!-- sidebar: style can be found in sidebar.less -->
   <section class="sidebar">
@@ -150,6 +160,25 @@
         <ul class="treeview-menu">
           <li><a href="photo_gallery.php"><i class="fa fa-circle-o"></i>Photo Gallery</a></li>
           <li><a href="video_gellery.php"><i class="fa fa-circle-o"></i>Vieo Gellery</a></li>
+        </ul>
+      </li> 
+       <!-- -------- Setting start --------  -->
+       <!-- -------- Setting start --------  -->
+       <!-- -------- Setting start --------  -->
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-gear"></i>
+          <!-- <i class="fa fa-user-circle" aria-hidden="true"></i> -->
+          <span>Setting</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="general-setting.php"><i class="fa fa-angle-right pull-left"></i>General Setting</a></li>
+          <li><a href="school_setting.php"><i class="fa fa-angle-right pull-left"></i>School Setting</a></li>
+          <li><a href="site_image.php"><i class="fa fa-angle-right pull-left"></i>Site Image</a></li>
+          <li><a href="sidebar_setting.php"><i class="fa fa-angle-right pull-left"></i>Sidebar Image</a></li>
         </ul>
       </li>
       <!-- -------- Gallery end --------  -->

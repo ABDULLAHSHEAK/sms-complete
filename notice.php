@@ -3,10 +3,10 @@
 <!-- ----------- breadcrumb section ----------  -->
 
 <div id="breadcrumb" class="hoc clear">
-  <h6 class="heading">Committees </h6>
+  <h6 class="heading">Notice </h6>
   <ul>
     <li><a href="#">Home</a></li>
-    <li><a href="#">Committees </a></li>
+    <li><a href="#">Notice </a></li>
   </ul>
 </div>
 <!-- ################################################################################################ -->
@@ -40,6 +40,7 @@
                         if (mysqli_num_rows($result) > 0) {
                           while ($row = mysqli_fetch_assoc($result)) {
                             $title = $row['title'];
+                            $slug = $row['slug'];
                             $create_at = date('d-m-Y', strtotime($row['created_at']));
                         ?>
                             <li>
@@ -47,12 +48,12 @@
                               <?= $title ?>
                               <span><?= "( " . $create_at . " )" ?></span>
                               <span>
-                                <a href="view-notice.php">দেখুন</a>
+                                <a href="view-notice.php?notice=<?= $slug ?>">দেখুন</a>
                               </span>
                             </li>
                         <?php }
                         } ?>
-                        </অ>
+                        </ol>
                     </div>
                   </div>
                 </div>

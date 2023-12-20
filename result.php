@@ -49,7 +49,7 @@
                <span><?= "( " . $class . " )" ?></span>
                <span><?= "( ". $date ." )"?></span>
                <span>
-                <a href="view-result.php">দেখুন</a>
+                <a href="view-result.php?result=<?=$row['slug']?>">দেখুন</a>
                </span>
               </li>
             <?php }
