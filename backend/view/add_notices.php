@@ -26,7 +26,7 @@ if (isset($_POST['add_notice'])) {
         if ($run) {
             move_uploaded_file($tempName, $upload);
             // $post_publis_alert = "Notice Added Succesfully";
-            $_SESSION['notice_add'] = 'add';
+            $_SESSION['run'] = 'succesfully';
             header('Location: add_notices.php'); // Redirect should occur before any output
             // session_destroy('$alert');
         } else {
@@ -65,19 +65,6 @@ if (isset($_POST['add_notice'])) {
     <section class="content">
         <div class="row">
             <div class="col-md-10">
-                <?php
-
-                // if ($_SESSION['notice_add'] = "add") {
-                //     echo " <script>
-                //     $(function() {
-                //     toastr.success('Success')
-                //     });
-                //     </script>";
-                // }
-                // unset($_SESSION['notice_add']);
-
-                // session_destroy();
-                ?>
                 <div class="panel"><!--panel bg-maroon-->
                     <div class="panel-heading bg-aqua-active">
 
@@ -126,13 +113,6 @@ if (isset($_POST['add_notice'])) {
     </section><!-- /.section -->
 
 </div>
-<script>
-    let btn = document.getElementById('btnSubmit');
-    btn.addEventListener('click', function(e) {
-        $(function() {
-            toastr.success('Success')
-        });
-    });
-</script>
+
 
 <?php include_once('footer.php'); ?>

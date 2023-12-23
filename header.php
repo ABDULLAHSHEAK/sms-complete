@@ -12,7 +12,6 @@ $get_query3 = "SELECT * FROM school_setting";
 $get_run3 = mysqli_query($conn, $get_query3);
 $get_result3 = mysqli_fetch_assoc($get_run3);
 
-
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +27,7 @@ $get_result3 = mysqli_fetch_assoc($get_run3);
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- ------ icone ----------   -->
   <link rel="icon" type="image/x-icon" href="images/fav1.png">
+
 </head>
 
 <body id="top">

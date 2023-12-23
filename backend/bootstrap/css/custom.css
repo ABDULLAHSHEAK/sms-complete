@@ -31,3 +31,9 @@ center button.dlt-btn {
     border-radius: 0;
     color: #fff;
 }
+img#output {
+    width: 130px;
+    height: 150px;
+    border: 3px solid #f1ecec;
+    box-shadow: 2px 2px 7px 3px #ddd;
+}

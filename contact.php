@@ -1,4 +1,25 @@
-<?php include_once("header.php") ?>
+<?php
+session_start();
+include_once("header.php");
+
+include_once('backend/controller/config.php');
+if(isset($_POST['submit'])){
+  $name = mysqli_real_escape_string($conn, $_POST['name']);
+  $email = mysqli_real_escape_string($conn, $_POST['email']);
+  $subject = mysqli_real_escape_string($conn, $_POST['subject']);
+  $massage = mysqli_real_escape_string($conn, $_POST['massage']);
+
+  $query = "INSERT INTO contact (name,email,subject,massage) VALUES ('$name', '$email', '$subject', '$massage' )";
+
+  $run = mysqli_query($conn, $query);
+  if ($run) {
+    $_SESSION['status'] = 'Success';
+    // header('location:contact.php');
+    // echo "<script>window.location.href='contact.php';</script>";
+  }
+
+}
+?>
 
 
 <div id="breadcrumb" class="hoc clear">
@@ -32,18 +53,18 @@
       <h1 style="color: green; font-size: 30px; border-bottom: 2px solid ; text-align: center; text-transform: uppercase;">Send your massage</h1>
       <div class="frme">
         <div class="fromleft">
-          <form action="">
+          <form action="" method="POST">
             Full Name
-            <input type="text" placeholder="Enter Your Full Name" class="form-control"> <br>
+            <input type="text" name="name" placeholder="Enter Your Full Name" class="form-control" required> <br>
             Email
-            <input type="email" placeholder="Enter Your Roll NO " class="form-control"> <br>
+            <input type="email" name="email" placeholder="Enter Your Roll NO " class="form-control" required> <br>
             Subject
-            <input type="text" placeholder="Subject"> <br>
+            <input type="text" name="subject" placeholder="Subject" required> <br>
 
             Massage
-            <textarea name="" id="" cols="30" rows="10" placeholder="Enter Your Massage"></textarea>
+            <textarea name="massage" id="" cols="30" rows="10" placeholder="Enter Your Massage" required></textarea>
             <br>
-            <button type="button">submit</button>
+            <button type="submit" name="submit">Submit</button>
           </form>
         </div>
         <div class="fromright">

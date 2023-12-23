@@ -22,6 +22,7 @@ if (isset($_POST['save'])) {
  if ($query) {
   // echo "<script>alert('Successfully Updated');</script>";
   $update = "Data update successful";
+  $_SESSION['run'] = 'update';
   // echo "<script>window.location.href = 'general-setting.php';</script>";
  }
 }

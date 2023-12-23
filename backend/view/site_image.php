@@ -1,5 +1,5 @@
 <?php
-include_once("../model/add_student.php");
+include_once("../model/update_site_image.php");
 if (!isset($_SERVER['HTTP_REFERER'])) {
  // redirect them to your desired location
  header('location:../index.php');
@@ -107,7 +107,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
  include_once('../controller/config.php');
  $site_image = "SELECT * FROM site_image";
  $result = mysqli_query($conn, $site_image);
- $img_data = mysqli_fetch_assoc($result);
+ $side_data = mysqli_fetch_assoc($result);
  ?>
  <!-- ----- select image name from database --------  -->
  <!-- Main content -->
@@ -118,10 +118,9 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
     <!-- general form elements -->
     <div class="box box-primary">
      <div class="box-header with-border">
-      <h4 style="color:red;font-weight:bold"><?= $student_alert ?></h4>
       <div class="row">
        <div class="col-lg-10">
-        <h3 class="text-white">Site Images</h3>
+        <h3 class="text-white">Home Page Images Setting</h3>
 
        </div>
        <div class="col-lg-2">
@@ -132,114 +131,197 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
       </div>
      </div><!-- /.box-header -->
      <!-- form start -->
-     <form role="form" action="" method="POST" enctype="multipart/form-data" id="form1" class="form-horizontal">
+     <!-- form start -->
+     <div role="form" class="form-horizontal">
       <div class="box-body">
-       <!-- -------- Fav Icone -------------  -->
-       <div class="form-group" id="divPhoto">
-        <div class="col-xs-3">
-         <label>Site/Fav Icone(180*180 px)</label>
+       <!-- -------- Fav Icone image -------------  -->
+       <div class="setting">
+        <div class="form-group" id="divPhoto">
+         <div class="col-xs-3">
+          <label>Site/Fav Icone(180*180 px)</label>
+         </div>
+         <div class="col-xs-3" id="divPhoto1" style="height:150px;">
+          <img src="media/<?= $side_data['fav_icone'] ?>" id="output" style="width:130px;height:150px;" class="media_img" />
+         </div>
         </div>
-        <div class="col-xs-3" id="divPhoto1" style="height:150px;">
-         <img src="site_image/<?= $img_data['fav_icone'] ?>" id="output" style="width:130px;height:150px;" />
-         <h4><?= $file_error ?></h4>
-         <input required type="file" name="fav" id="fileToUpload" style="margin-top:7px;" />
+        <div style="text-align: center;margin: 10px 0 20px 50px;display: flex;">
+         <a href="media.php?page=1" class="btn btn-warning" style="margin-right: 5px;">Upload</a>
+         <!-- <a href="">Save</a> -->
+         <form action="" method="POST">
+          <input type="text" name="fav_img" value="<?= $img_name ?>" hidden>
+          <button class="btn btn-primary" type="submit" id="pre_img" name="fav_submit">Save</button>
+         </form>
         </div>
-       </div> <br /> <br />
+       </div>
 
-       <!-- -------- President -------------  -->
-       <div class="form-group" id="divPhoto">
-        <div class="col-xs-3">
-         <label>The President image (348 * 220 px)</label>
+       <!-- -------- President image -------------  -->
+       <div class="setting">
+        <div class="form-group" id="divPhoto">
+         <div class="col-xs-3">
+          <label>The President image (348 * 220 px)</label>
+         </div>
+         <div class="col-xs-3" id="divPhoto1" style="height:150px;">
+          <img src="media/<?= $side_data['president'] ?>" id="output" style="width:130px;height:150px;" class="media_img" />
+         </div>
         </div>
-        <div class="col-xs-3" id="divPhoto1" style="height:150px;">
-         <img src="site_image/<?= $img_data['president'] ?>" id="output" style="width:130px;height:150px;" />
-         <h4><?= $file_error ?></h4>
-         <input required type="file" name="president_img" id="fileToUpload" style="margin-top:7px;" />
+        <div style="text-align: center;margin: 10px 0 20px 50px;display: flex;">
+         <a href="media.php?page=1" class="btn btn-warning" style="margin-right: 5px;">Upload</a>
+         <!-- <a href="">Save</a> -->
+         <form action="" method="POST">
+          <input type="text" name="president_img" value="<?= $img_name ?>" hidden>
+          <button class="btn btn-primary" type="submit" id="pre_img" name="president_submit">Save</button>
+         </form>
         </div>
-       </div> <br /> <br />
-       <!-- -------- Principal -------------  -->
-       <div class="form-group" id="divPhoto">
-        <div class="col-xs-3">
-         <label> Principal image (348 * 220 px)</label>
+       </div>
+
+       <!-- -------- Principal image -------------  -->
+       <div class="setting">
+        <div class="form-group" id="divPhoto">
+         <div class="col-xs-3">
+          <label>Principal image (348 * 220 px)</label>
+         </div>
+         <div class="col-xs-3" id="divPhoto1" style="height:150px;">
+          <img src="media/<?= $side_data['principal'] ?>" id="output" style="width:130px;height:150px;" class="media_img" />
+         </div>
         </div>
-        <div class="col-xs-3" id="divPhoto1" style="height:150px;">
-         <img src="site_image/<?= $img_data['principal'] ?>" id="output" style="width:130px;height:150px;" />
-         <h4><?= $file_error ?></h4>
-         <input required type="file" name="principal_img" id="fileToUpload" style="margin-top:7px;" />
+        <div style="text-align: center;margin: 10px 0 20px 50px;display: flex;">
+         <a href="media.php?page=1" class="btn btn-warning" style="margin-right: 5px;">Upload</a>
+         <!-- <a href="">Save</a> -->
+         <form action="" method="POST">
+          <input type="text" name="principal_img" value="<?= $img_name ?>" hidden>
+          <button class="btn btn-primary" type="submit" id="pre_img" name="principal_submit">Save</button>
+         </form>
         </div>
-       </div> <br /> <br />
-       <!-- -------- Assistant -------------  -->
-       <div class="form-group" id="divPhoto">
-        <div class="col-xs-3">
-         <label>Assistant Principal image (348 * 220 px)</label>
+       </div>
+
+       <!-- -------- Assistant Principal image -------------  -->
+       <div class="setting">
+        <div class="form-group" id="divPhoto">
+         <div class="col-xs-3">
+          <label>Assistant Principal image (348 * 220 px)</label>
+         </div>
+         <div class="col-xs-3" id="divPhoto1" style="height:150px;">
+          <img src="media/<?= $side_data['sub_principal'] ?>" id="output" style="width:130px;height:150px;" class="media_img" />
+         </div>
         </div>
-        <div class="col-xs-3" id="divPhoto1" style="height:150px;">
-         <img src="site_image/<?= $img_data['sub_principal'] ?>" id="output" style="width:130px;height:150px;" />
-         <h4><?= $file_error ?></h4>
-         <input required type="file" name="home_img" id="fileToUpload" style="margin-top:7px;" />
+        <div style="text-align: center;margin: 10px 0 20px 50px;display: flex;">
+         <a href="media.php?page=1" class="btn btn-warning" style="margin-right: 5px;">Upload</a>
+         <!-- <a href="">Save</a> -->
+         <form action="" method="POST">
+          <input type="text" name="sub_principal_img" value="<?= $img_name ?>" hidden>
+          <button class="btn btn-primary" type="submit" id="pre_img" name="sub_principal_submit">Save</button>
+         </form>
         </div>
-       </div> <br /> <br />
-       <!-- -------- Nav Logo -------------  -->
-       <div class="form-group" id="divPhoto">
-        <div class="col-xs-3">
-         <label>School Logo (300*300 px)</label>
+       </div>
+
+       <!-- -------- School Logo  -------------  -->
+       <div class="setting">
+        <div class="form-group" id="divPhoto">
+         <div class="col-xs-3">
+          <label>School Logo (300*300 px)</label>
+         </div>
+         <div class="col-xs-3" id="divPhoto1" style="height:150px;">
+          <img src="media/<?= $side_data['school_logo'] ?>" id="output" style="width:130px;height:150px;" class="media_img" />
+         </div>
         </div>
-        <div class="col-xs-3" id="divPhoto1" style="height:150px;">
-         <img src="site_image/<?= $img_data['school_logo'] ?>" id="output" style="width:130px;height:150px;" />
-         <h4><?= $file_error ?></h4>
-         <input required type="file" name="school_logo" id="fileToUpload" style="margin-top:7px;" />
+        <div style="text-align: center;margin: 10px 0 20px 50px;display: flex;">
+         <a href="media.php?page=1" class="btn btn-warning" style="margin-right: 5px;">Upload</a>
+         <!-- <a href="">Save</a> -->
+         <form action="" method="POST">
+          <input type="text" name="school_logo_img" value="<?= $img_name ?>" hidden>
+          <button class="btn btn-primary" type="submit" id="pre_img" name="school_submit">Save</button>
+         </form>
         </div>
-       </div> <br /> <br />
-       <!-- -------- Nav Logo -------------  -->
-       <div class="form-group" id="divPhoto">
-        <div class="col-xs-3">
-         <label>Home Background-img (1000*550 px)</label>
+       </div>
+
+       <!-- -------- Home Background-img -------------  -->
+       <div class="setting">
+        <div class="form-group" id="divPhoto">
+         <div class="col-xs-3">
+          <label>Home Background-img (1000*550 px)</label>
+         </div>
+         <div class="col-xs-3" id="divPhoto1" style="height:150px;">
+          <img src="media/<?= $side_data['home_bg'] ?>" id="output" style="width:130px;height:150px;" class="media_img" />
+         </div>
         </div>
-        <div class="col-xs-3" id="divPhoto1" style="height:150px;">
-         <img src="site_image/<?= $img_data['home_bg'] ?>" id="output" style="width:130px;height:150px;" />
-         <h4><?= $file_error ?></h4>
-         <input required type="file" name="home_img" id="fileToUpload" style="margin-top:7px;" />
+        <div style="text-align: center;margin: 10px 0 20px 50px;display: flex;">
+         <a href="media.php?page=1" class="btn btn-warning" style="margin-right: 5px;">Upload</a>
+         <!-- <a href="">Save</a> -->
+         <form action="" method="POST">
+          <input type="text" name="home_img" value="<?= $img_name ?>" hidden>
+          <button class="btn btn-primary" type="submit" id="pre_img" name="home_submit">Save</button>
+         </form>
         </div>
-       </div> <br /> <br />
-       <!-- -------- Nav Logo -------------  -->
-       <div class="form-group" id="divPhoto">
-        <div class="col-xs-3">
-         <label>History Background-img (1000*550 px)</label>
+       </div>
+
+
+       <!-- -------- History Background-img  -------------  -->
+       <div class="setting">
+        <div class="form-group" id="divPhoto">
+         <div class="col-xs-3">
+          <label>History Background-img (1000*550 px)</label>
+         </div>
+         <div class="col-xs-3" id="divPhoto1" style="height:150px;">
+          <img src="media/<?= $side_data['history_bg'] ?>" id="output" style="width:130px;height:150px;" class="media_img" />
+         </div>
         </div>
-        <div class="col-xs-3" id="divPhoto1" style="height:150px;">
-         <img src="site_image/<?= $img_data['history_bg'] ?>" id="output" style="width:130px;height:150px;" />
-         <h4><?= $file_error ?></h4>
-         <input required type="file" name="history_img" id="fileToUpload" style="margin-top:7px;" />
+        <div style="text-align: center;margin: 10px 0 20px 50px;display: flex;">
+         <a href="media.php?page=1" class="btn btn-warning" style="margin-right: 5px;">Upload</a>
+         <!-- <a href="">Save</a> -->
+         <form action="" method="POST">
+          <input type="text" name="history_bg_img" value="<?= $img_name ?>" hidden>
+          <button class="btn btn-primary" type="submit" id="pre_img" name="history_bg_submit">Save</button>
+         </form>
         </div>
-       </div> <br /> <br />
-       <!-- -------- History font img -------------  -->
-       <div class="form-group" id="divPhoto">
-        <div class="col-xs-3">
-         <label>History Font-img (1364*1036 px)</label>
+       </div>
+
+
+       <!-- -------- History font-img  -------------  -->
+       <div class="setting">
+        <div class="form-group" id="divPhoto">
+         <div class="col-xs-3">
+          <label>History Font-img (1364*1036 px)</label>
+         </div>
+         <div class="col-xs-3" id="divPhoto1" style="height:150px;">
+          <img src="media/<?= $side_data['history_font'] ?>" id="output" style="width:130px;height:150px;" class="media_img" />
+         </div>
         </div>
-        <div class="col-xs-3" id="divPhoto1" style="height:150px;">
-         <img src="site_image/<?= $img_data['history_font'] ?>" id="output" style="width:130px;height:150px;" />
-         <h4><?= $file_error ?></h4>
-         <input required type="file" name="history_imgf" id="fileToUpload" style="margin-top:7px;" />
+        <div style="text-align: center;margin: 10px 0 20px 50px;display: flex;">
+         <a href="media.php?page=1" class="btn btn-warning" style="margin-right: 5px;">Upload</a>
+         <!-- <a href="">Save</a> -->
+         <form action="" method="POST">
+          <input type="text" name="history_font_img" value="<?= $img_name ?>" hidden>
+          <button class="btn btn-primary" type="submit" id="pre_img" name="history_font_submit">Save</button>
+         </form>
         </div>
-       </div> <br /> <br />
-       <!-- -------- Hot LIne img -------------  -->
-       <div class="form-group" id="divPhoto">
-        <div class="col-xs-3">
-         <label>Info/Hotline img(218*454 px)</label>
+       </div>
+
+
+       <!-- -------- Info/Hotline img -------------  -->
+       <div class="setting">
+        <div class="form-group" id="divPhoto">
+         <div class="col-xs-3">
+          <label>Info/Hotline img(218*454 px)</label>
+         </div>
+         <div class="col-xs-3" id="divPhoto1" style="height:150px;">
+          <img src="media/<?= $side_data['hotline'] ?>" id="output" style="width:130px;height:150px;" class="media_img" />
+         </div>
         </div>
-        <div class="col-xs-3" id="divPhoto1" style="height:150px;">
-         <img src="site_image/<?= $img_data['hotline'] ?>" id="output" style="width:130px;height:150px;" />
-         <h4><?= $file_error ?></h4>
-         <input required type="file" name="info_img" id="fileToUpload" style="margin-top:7px;" />
+        <div style="text-align: center;margin: 10px 0 20px 50px;display: flex;">
+         <a href="media.php?page=1" class="btn btn-warning" style="margin-right: 5px;">Upload</a>
+         <!-- <a href="">Save</a> -->
+         <form action="" method="POST">
+          <input type="text" name="hotline_img" value="<?= $img_name ?>" hidden>
+          <button class="btn btn-primary" type="submit" id="pre_img" name="hotline_submit">Save</button>
+         </form>
         </div>
-       </div> <br /> <br />
-       <h4 class="alert alert-danger">(jpg,png,jpeg file Only)</h4>
+       </div>
+
+
       </div><!-- /.box-body -->
-      <div class="box-footer">
-       <button type="submit" class="btn btn-primary" id="btnSubmit" name="submit">Submit</button>
-      </div>
-     </form>
+     </div>
+
+
     </div><!-- /.box -->
    </div>
   </div>

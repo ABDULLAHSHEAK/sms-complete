@@ -5,14 +5,14 @@
   </div>
   <ul class="nospace group grid-3">
    <li class="one_third">
-    <article><a href="#"><i class="fas fa-chess-king"></i></a>
+    <article><a href="history.php"><i class="fas fa-chess-king"></i></a>
      <h6 class="heading">
       সংক্ষিপ্ত ইতিহাস 
      </h6>
      <p>
       <?= strip_tags(substr($get_result2['history'], 0, 500)) . "..." ?>
      </p>
-     <footer><a href="contact.php">Read More</a></footer>
+     <footer><a href="history.php">Read More</a></footer>
     </article>
    </li>
    <li class="one_third">

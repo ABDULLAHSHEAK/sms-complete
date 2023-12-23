@@ -6,6 +6,15 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
  exit;
 }
 ?>
+<!-- ----------- select data from database ------------ -->
+<?php
+include_once('../controller/config.php');
+$sidebar = "SELECT * FROM sidebar_setting";
+$result = mysqli_query($conn, $sidebar);
+$side_data = mysqli_fetch_assoc($result);
+
+?>
+
 <?php include_once('head.php'); ?>
 <?php include_once('header_admin.php'); ?>
 <?php include_once('sidebar.php'); ?>
@@ -111,11 +120,9 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
     <!-- general form elements -->
     <div class="box box-primary">
      <div class="box-header with-border">
-      <h4 style="color:red;font-weight:bold"><?= $student_alert ?></h4>
       <div class="row">
        <div class="col-lg-10">
         <h3 class="text-white">Sidebar Setting</h3>
-
        </div>
        <div class="col-lg-2">
         <h3>
@@ -126,66 +133,91 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
      </div><!-- /.box-header -->
 
      <!-- ----------- select data from database ------------ -->
-     <?php
-     include_once('../controller/config.php');
-     $sidebar = "SELECT * FROM sidebar_setting";
-     $result = mysqli_query($conn, $sidebar);
-     $side_data = mysqli_fetch_assoc($result);
-     ?>
-     <!-- ----------- select data from database ------------ -->
      <!-- form start -->
-     <form role="form" action="" method="POST" enctype="multipart/form-data" id="form1" class="form-horizontal">
+     <div role="form" class="form-horizontal">
       <div class="box-body">
-       <!-- -------- President -------------  -->
-       <!-- <div class="form-group" id="divPhoto">
-        <div class="col-xs-3">
-         <label>The President image (300*250 px)</label>
+       <!-- -------- President image -------------  -->
+       <div class="setting">
+        <div class="form-group" id="divPhoto">
+         <div class="col-xs-3">
+          <label>The President image (300*250 px)</label>
+         </div>
+         <div class="col-xs-3" id="divPhoto1" style="height:150px;">
+          <img src="media/<?= $side_data['president_img'] ?>" id="output" style="width:130px;height:150px;" class="media_img" />
+         </div>
         </div>
-        <div class="col-xs-3" id="divPhoto1" style="height:150px;">
-         <img src="sidebar/<?= $side_data['president_img'] ?>" id="output" style="width:130px;height:150px;" />
-         <h4><?= $file_error ?></h4>
-         <input required type="file" name="president_img" id="fileToUpload" style="margin-top:7px;" />
+        <div style="text-align: center;margin: 10px 0 20px 50px;display: flex;">
+         <a href="media.php?page=0" class="btn btn-warning" style="margin-right: 5px;">Upload</a>
+         <!-- <a href="">Save</a> -->
+         <form action="" method="POST">
+          <input type="text" name="pre_img" value="<?= $img_name ?>" hidden>
+          <button class="btn btn-primary" type="submit" id="pre_img" name="pre_submit">Save</button>
+         </form>
         </div>
-       </div> <br /> <br /> -->
-       <!-- -------- Principal -------------  -->
-       <!-- <div class="form-group" id="divPhoto">
-        <div class="col-xs-3">
-         <label> Principal image (300*300 px)</label>
+       </div>
+
+       <!-- -------- principal image -------------  -->
+       <div class="setting">
+        <div class="form-group" id="divPhoto">
+         <div class="col-xs-3">
+          <label>The Principal image (300*250 px)</label>
+         </div>
+         <div class="col-xs-3" id="divPhoto1" style="height:150px;">
+          <img src="media/<?= $side_data['principal_img'] ?>" id="output" style="width:130px;height:150px;" class="media_img" />
+         </div>
         </div>
-        <div class="col-xs-3" id="divPhoto1" style="height:150px;">
-         <img src="sidebar/<?= $side_data['principal_img'] ?> " id=" output" style="width:130px;height:150px;" />
-         <h4><?= $file_error ?></h4>
-         <input required type="file" name="principal_img" id="fileToUpload" style="margin-top:7px;" />
+        <div style="text-align: center;margin: 10px 0 20px 50px;display: flex;">
+         <a href="media.php?page=0" class="btn btn-warning" style="margin-right: 5px;">Upload</a>
+         <!-- <a href="">Save</a> -->
+         <form action="" method="POST">
+          <input type="text" name="princ_img" value="<?= $img_name ?>" hidden>
+          <button class="btn btn-primary" type="submit" id="pre_img" name="princ_submit">Save</button>
+         </form>
         </div>
-       </div> <br /> <br /> -->
-       <!-- -------- Assistant -------------  -->
-       <div class="form-group" id="divPhoto">
-        <div class="col-xs-3">
-         <label>Assistant Principal image (300*300 px)</label>
+       </div>
+
+       <!-- -------- sub principal image -------------  -->
+       <div class="setting">
+        <div class="form-group" id="divPhoto">
+         <div class="col-xs-3">
+          <label>The Sub-Principal image (300*250 px)</label>
+         </div>
+         <div class="col-xs-3" id="divPhoto1" style="height:150px;">
+          <img src="media/<?= $side_data['sub_principal_img'] ?>" id="output" style="width:130px;height:150px;" class="media_img" />
+         </div>
         </div>
-        <div class="col-xs-3" id="divPhoto1" style="height:150px;">
-         <img src="sidebar/<?= $side_data['sub_principal_img'] ?>" id=" output" style="width:130px;height:150px;" />
-         <h4><?= $file_error ?></h4>
-         <input type="file" name="sub" id="fileToUpload" style="margin-top:7px;" />
+        <div style="text-align: center;margin: 10px 0 20px 50px;display: flex;">
+         <a href="media.php?page=0" class="btn btn-warning" style="margin-right: 5px;">Upload</a>
+         <!-- <a href="">Save</a> -->
+         <form action="" method="POST">
+          <input type="text" name="sub_principal_img" value="<?= $img_name ?>" hidden>
+          <button class="btn btn-primary" type="submit" id="pre_img" name="sub_principal_submit">Save</button>
+         </form>
         </div>
-       </div> <br /> <br />
+       </div>
+
        <!-- -------- Info image -------------  -->
-       <div class="form-group" id="divPhoto">
-        <div class="col-xs-3">
-         <label>Info image (256*939 px)</label>
+       <div class="setting">
+        <div class="form-group" id="divPhoto">
+         <div class="col-xs-3">
+          <label>The Info image (256*939 px)</label>
+         </div>
+         <div class="col-xs-3" id="divPhoto1" style="height:150px;">
+          <img src="media/<?= $side_data['info_img'] ?>" id="output" style="width:130px;height:150px;" class="media_img" />
+         </div>
         </div>
-        <div class="col-xs-3" id="divPhoto1" style="height:150px;">
-         <img src="sidebar/<?= $side_data['info_img'] ?>  "id=" output" style="width:130px;height:150px;" />
-         <h4><?= $file_error ?></h4>
-         <input required type="file" name="info" id="fileToUpload" style="margin-top:7px;" />
+        <div style="text-align: center;margin: 10px 0 20px 50px;display: flex;">
+         <a href="media.php?page=0" class="btn btn-warning" style="margin-right: 5px;">Upload</a>
+         <!-- <a href="">Save</a> -->
+         <form action="" method="POST">
+          <input type="text" name="info_image" value="<?= $img_name ?>" hidden>
+          <button class="btn btn-primary" type="submit" id="pre_img" name="info_submit">Save</button>
+         </form>
         </div>
-       </div> <br /> <br />
-       <h4 class="alert alert-danger">(jpg,png,jpeg file Only)</h4>
+       </div>
+
       </div><!-- /.box-body -->
-      <div class="box-footer">
-       <button type="submit" class="btn btn-primary" id="btnSubmit" name="submit">Submit</button>
-      </div>
-     </form>
+     </div>
     </div><!-- /.box -->
    </div>
   </div>

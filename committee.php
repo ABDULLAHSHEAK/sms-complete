@@ -1,4 +1,17 @@
-<?php include_once("header.php"); ?>
+<?php include_once("header.php");
+
+// pagination start 
+if (!isset($_GET['page'])) {
+  $page = 1;
+} else {
+  $page = $_GET['page'];
+}
+$limit = 3;
+$offset = ($page - 1) * $limit;
+
+// pagination end ------------
+
+?>
 
 <!-- ----------- breadcrumb section ----------  -->
 
@@ -44,20 +57,19 @@
                         <?php
 
                         include_once('backend/controller/config.php');
-                        $sql = "SELECT * FROM committee ORDER BY reg_date DESC ";
+                        $sql = "SELECT * FROM committee ORDER BY reg_date DESC limit $limit offset $offset";
                         $result = mysqli_query($conn, $sql);
                         $count = 0;
                         $cant_remove = 0;
                         $cant_remove1 = 0;
                         if (mysqli_num_rows($result) > 0) {
                           while ($row = mysqli_fetch_assoc($result)) {
-                            $count++;
                             $id = $row['id'];
                             $slug = $row['slug'];
                             $create_at = date('d-m-Y', strtotime($row['reg_date']));
                         ?>
                             <tr>
-                              <td><?php echo $count; ?></td>
+                              <td><?= ++$offset ?></td>
                               <td><?php echo $row['full_name']; ?></td>
                               <td><?php echo $row['title']; ?></td>
                               <td><?php echo $row['phone']; ?></td>
@@ -67,7 +79,7 @@
                                   <!-- ------ view button --------  -->
                                   <div style="margin-right: 5px;">
                                     <form action="">
-                                      <a href="committe-profile.php?committe=<?=$slug?>" class="btn btn-warning btn-sm">View</a>
+                                      <a href="committe-profile.php?committe=<?= $slug ?>" class="btn btn-warning btn-sm">View</a>
                                     </form>
                                   </div>
 
@@ -82,6 +94,24 @@
                 </div>
               </div>
             </div>
+            <!-- // pagination code start  -->
+            <?php
+            $pagination = "SELECT * FROM committee";
+            $p_query = mysqli_query($conn, $pagination);
+            $count_post = mysqli_num_rows($p_query);
+            $total_pages = ceil($count_post / $limit);
+            if ($count_post > $limit) {
+            ?>
+              <ul class="pagination pt-5 pb-5">
+                <?php
+                for ($i = 1; $i <= $total_pages; $i++) {
+                ?>
+                  <li class="page-item <?= ($i == $page) ? $active = 'active' : ''; ?>">
+                    <a href="committee.php?page=<?= $i ?>" class="page-link"><?= $i ?></a>
+                  </li>
+                <?php } ?>
+              </ul>
+            <?php } ?>
           </section> <!-- End of table section -->
 
         </div>

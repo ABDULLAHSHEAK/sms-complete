@@ -53,6 +53,11 @@ if(!isset($_SESSION["index_number"])){
           <i class="fa fa-users"></i> <span>User</span>
         </a>
       </li>
+      <li>
+        <a href="media.php?page=2">
+          <i class="fa fa-folder"></i> <span>Media</span>
+        </a>
+      </li>
       <li class="header">ACADEMY SECTION</li>
       <li>
         <a href="class_room.php">

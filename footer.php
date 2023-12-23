@@ -21,6 +21,26 @@
 <script src="layout/scripts/app.js"></script>
 <!-- Latest compiled JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- ---------- sweet alert -----------  -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<?php
+if (isset($_SESSION['status']) && $_SESSION['status'] != '') {
+
+?>
+  <script>
+    swal({
+      title: "<?= $_SESSION['status'] ?>",
+      text: "Thank you for Submit!",
+      icon: "success",
+      button: "Close",
+    });
+  </script>
+<?php
+  unset($_SESSION['status']);
+}
+?>
 </body>
 
 </html>
