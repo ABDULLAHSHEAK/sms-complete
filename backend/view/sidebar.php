@@ -1,6 +1,6 @@
 <!-- Left side column. contains the logo and sidebar -->
-<?php 
-if(!isset($_SESSION["index_number"])){
+<?php
+if (!isset($_SESSION["index_number"])) {
   echo "<script>window.location.href='login.php'</script>";
 }
 // if (!isset($_SERVER['HTTP_REFERER'])) {
@@ -23,9 +23,7 @@ if(!isset($_SESSION["index_number"])){
     $row = mysqli_fetch_assoc($result);
     $name = $row['i_name'];
     $image = $row['image_name'];
-
     ?>
-
     <div class="user-panel">
       <div class="pull-left image">
         <img src="users/<?php echo $image; ?>" class="img-circle" alt="User Image">
@@ -35,7 +33,6 @@ if(!isset($_SESSION["index_number"])){
         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
       </div>
     </div>
-    <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu">
       <li class="header">MAIN SECTION</li>
       <li class="active treeview">
@@ -166,10 +163,10 @@ if(!isset($_SESSION["index_number"])){
           <li><a href="photo_gallery.php"><i class="fa fa-circle-o"></i>Photo Gallery</a></li>
           <li><a href="video_gellery.php"><i class="fa fa-circle-o"></i>Vieo Gellery</a></li>
         </ul>
-      </li> 
-       <!-- -------- Setting start --------  -->
-       <!-- -------- Setting start --------  -->
-       <!-- -------- Setting start --------  -->
+      </li>
+      <!-- -------- Setting start --------  -->
+      <!-- -------- Setting start --------  -->
+      <!-- -------- Setting start --------  -->
       <li class="treeview">
         <a href="#">
           <i class="fa fa-gear"></i>
@@ -186,7 +183,7 @@ if(!isset($_SESSION["index_number"])){
           <li><a href="sidebar_setting.php"><i class="fa fa-angle-right pull-left"></i>Sidebar Image</a></li>
         </ul>
       </li>
-     
+
     </ul>
   </section>
   <!-- /.sidebar -->
