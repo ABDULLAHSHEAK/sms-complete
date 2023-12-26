@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
   $run = mysqli_query($conn, $query);
   if ($run) {
    move_uploaded_file($tempName, $upload);
-   header('Location: student.php'); // Redirect should occur before any output
+   header('Location: student.php'); 
    $teacher_alert = "Student Added Succesfully";
   } else {
    echo "error";

@@ -7,6 +7,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
     exit;
 }
 // $post_publis_alert = "";
+$post_edit_alert = '';
 $file_error = '';
 if (isset($_POST['add_notice'])) {
     $notice_title = $_POST['title'];
@@ -25,8 +26,6 @@ if (isset($_POST['add_notice'])) {
         $run = mysqli_query($conn, $query);
         if ($run) {
             move_uploaded_file($tempName, $upload);
-            // $post_publis_alert = "Notice Added Succesfully";
-            $_SESSION['run'] = 'succesfully';
             header('Location: add_notices.php'); // Redirect should occur before any output
             // session_destroy('$alert');
         } else {

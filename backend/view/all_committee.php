@@ -158,7 +158,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 
                                                     <div style="margin-right: 5px;">
                                                         <form action="">
-                                                            <a href="edit_notic.php?editId = <?= $id ?>" class="btn btn-info btn-xs">Edit</a>
+                                                            <a href="edit_committee.php?editId=<?= $id ?>" class="btn btn-info btn-xs">Edit</a>
                                                         </form>
                                                     </div>
                                                     <!-- ------ delete button --------  -->
@@ -172,7 +172,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                                     <!-- ------ view button --------  -->
                                                     <div style="margin-right: 5px;">
                                                         <form action="">
-                                                            <a href="committee_profile.php?committee=<?=$slug?>" class="btn btn-warning btn-xs">View</a>
+                                                            <a href="committee_profile.php?committee=<?= $slug ?>" class="btn btn-warning btn-xs">View</a>
                                                         </form>
                                                     </div>
 
@@ -222,5 +222,6 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
     </div><!--/.Modal-Update form -->
 
 
-    < </div><!-- /.content-wrapper -->
-</div>
+</div><!-- /.content-wrapper -->
+
+<?php include_once('footer.php'); ?>

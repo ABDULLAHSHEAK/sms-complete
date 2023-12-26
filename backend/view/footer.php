@@ -2,7 +2,7 @@
 	  <div class="pull-right hidden-xs">
 	    <b>Version</b> 2.0.2
 	  </div>
-	  <strong>Copyright &copy; 2021-2024 <a href="https://www.facebook.com/abdullahshakeabir">Md Abdullah Shake</a>.</strong> All rights reserved.
+	  <strong>Copyright &copy; 2023-2024 <a href="https://www.facebook.com/abdullahshakeabir">Md Abdullah Shake</a>.</strong> All rights reserved.
 	</footer>
 
 
@@ -28,6 +28,7 @@
     // unset($_SESSION['run']);
   }
   ?>
+		<script src="../bootstrap/js/calender.js"></script>
 	</body>
 
 	</html>

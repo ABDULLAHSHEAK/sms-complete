@@ -178,6 +178,26 @@ body{
     font-size: 16px;
     text-align: center;
 }
+a.view {
+    position: fixed;
+    top: 100px;
+    right: -43px;
+    background: red;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 40px 0 0 40px;
+    z-index: 5;
+    transition: 0.5s ;
+}
+a.view:hover{
+    right: 0;
+}
+a.buy{
+    top:150px !important;
+    background: green !important;
+}
 @media screen and (max-width: 768px) {
   .flex-part2 p{
     display: none;

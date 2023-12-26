@@ -28,7 +28,7 @@ if(!isset($_SESSION["index_number"])){
 
     <div class="user-panel">
       <div class="pull-left image">
-        <img src="../<?php echo $image; ?>" class="img-circle" alt="User Image">
+        <img src="users/<?php echo $image; ?>" class="img-circle" alt="User Image">
       </div>
       <div class="pull-left info">
         <p><?php echo $name; ?></p>
@@ -186,93 +186,7 @@ if(!isset($_SESSION["index_number"])){
           <li><a href="sidebar_setting.php"><i class="fa fa-angle-right pull-left"></i>Sidebar Image</a></li>
         </ul>
       </li>
-      <!-- -------- Gallery end --------  -->
-      <li>
-        <a href="grade.php">
-          <i class="fa fa-database"></i> <span>Grade</span>
-        </a>
-      </li>
-      <li>
-        <a href="subject.php">
-          <i class="fa fa-book"></i> <span>Subject</span>
-        </a>
-      </li>
-      <li>
-        <a href="subject_routing.php">
-          <i class="fa fa-th"></i> <span>Subject Routing</span>
-        </a>
-      </li>
-      <li>
-        <a href="timetable.php">
-          <i class="fa fa-calendar-plus-o"></i> <span>Timetable</span>
-        </a>
-      </li>
-      <li>
-        <a href="student_payment.php">
-          <i class="fa fa-money"></i> <span>Student Payment</span>
-        </a>
-      </li>
-      <li class="treeview">
-        <a href="#">
-          <i class="fa fa-calendar-check-o"></i>
-          <span>Attendance</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="add_attendance.php"><i class="fa fa-circle-o"></i> Add Attendance</a></li>
-          <li><a href="student_attendance_history.php"><i class="fa fa-circle-o"></i>Student Attendance History </a></li>
-          <li><a href="teacher_attendance_history.php"><i class="fa fa-circle-o"></i> Teacher Attendance History</a></li>
-        </ul>
-      </li>
-      <li class="treeview">
-        <a href="#">
-          <i class="fa fa-certificate"></i>
-          <span>Exam</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="exam.php"><i class="fa fa-circle-o"></i>Create Exam</a></li>
-          <li><a href="exam_timetable.php"><i class="fa fa-circle-o"></i> Exam Timetable</a></li>
-          <li><a href="student_exam_marks.php"><i class="fa fa-circle-o"></i>Student Exam Marks</a></li>
-          <li><a href="student_exam_marks_history.php"><i class="fa fa-circle-o"></i>Student Exam Marks History</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="petty_cash.php">
-          <i class="fa fa-yen"></i> <span>Petty Cash</span>
-        </a>
-      </li>
-      <li class="treeview">
-        <a href="#">
-          <i class="fa fa-facebook"></i>
-          <span>Friends</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="add_friends.php"><i class="fa fa-circle-o"></i> Add Friends</a></li>
-          <li><a href="my_friends.php"><i class="fa fa-circle-o"></i> My Friends</a>
-
-        </ul>
-      </li>
-      <li class="treeview">
-        <a href="#">
-          <i class="fa fa-calendar"></i>
-          <span>Event</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="my_events.php"><i class="fa fa-circle-o"></i> My Events</a></li>
-          <li><a href="all_events.php"><i class="fa fa-circle-o"></i> All Events</a></li>
-        </ul>
-      </li>
+     
     </ul>
   </section>
   <!-- /.sidebar -->

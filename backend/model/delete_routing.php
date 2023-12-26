@@ -1,5 +1,5 @@
-<?php 
-// delete notices start
+<?php
+// delete Routing start
 $routing_delete = '';
 include_once('../controller/config.php');
 if (isset($_POST['delete_routing'])) {
@@ -9,9 +9,8 @@ if (isset($_POST['delete_routing'])) {
   $routing_delete = mysqli_query($conn, $post_sql);
   if ($routing_delete) {
     unlink("routing/" . $routing_file);
-     $routing_delete = "Routing Delete Succesfull";
+    $routing_delete = "Routing Delete Succesfull";
   } else {
     echo "not delete";
   }
 }
-?>

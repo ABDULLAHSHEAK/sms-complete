@@ -326,3 +326,5 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
    </div>
   </div>
  </section><!-- End of form section -->
+</div>
+<?php include_once('footer.php'); ?>

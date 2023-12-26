@@ -67,7 +67,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
      <div class="panel-body"><!--panel-body -->
       <div class="row" id="my_profile">
        <div class="col-md-3">
-        <img id="photo2" alt="User Pic" src="committee/<?php echo $row['image_name'] ?>" class="img-circle img-responsive">
+        <img id="photo2" alt="User Pic" src="users/<?php echo $row['image_name'] ?>" class="img-circle img-responsive">
        </div>
        <div class=" col-md-9">
         <table class="table table-bordered table-striped table-responsiv">

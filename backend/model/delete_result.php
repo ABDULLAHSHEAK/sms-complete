@@ -1,5 +1,5 @@
-<?php 
-// delete notices start
+<?php
+// delete Result start
 $result_delete = '';
 include_once('../controller/config.php');
 if (isset($_POST['delete_result'])) {
@@ -9,9 +9,8 @@ if (isset($_POST['delete_result'])) {
   $result_delete = mysqli_query($conn, $post_sql);
   if ($result_delete) {
     unlink("routing/" . $result_file);
-     $routing_delete = "Result Delete Succesfull";
+    $routing_delete = "Result Delete Succesfull";
   } else {
     echo "not delete";
   }
 }
-?>

@@ -1,6 +1,6 @@
 <?php
 include_once("../model/add_committee.php");
-if(!isset($_SERVER['HTTP_REFERER'])){
+if (!isset($_SERVER['HTTP_REFERER'])) {
     // redirect them to your desired location
     header('location:../index.php');
     exit;
@@ -12,80 +12,96 @@ if(!isset($_SERVER['HTTP_REFERER'])){
 <?php include_once('alert.php'); ?>
 
 <style>
+    .msk-col-md-4 {
+        width: 28%;
+    }
 
-.msk-col-md-4{
-	width:28%;
-}
-.modal{
-	overflow-y: auto;
-}
+    .modal {
+        overflow-y: auto;
+    }
 
-.form-control-feedback {
-  
-   pointer-events: auto;
-  
-}
+    .form-control-feedback {
 
-.msk-set-width-tooltip + .tooltip > .tooltip-inner { 
-  
-     min-width:180px;
-}
-.msk-set-color-tooltip + .tooltip > .tooltip-inner { 
-  
-     min-width:180px;
-	 background-color:red;
-}
-.msk-image-error{
-	border:1px solid #f44336;
-	
-}
+        pointer-events: auto;
 
-.msk-fade {  
-      
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
-    animation-duration: 0.4s
+    }
 
-}
+    .msk-set-width-tooltip+.tooltip>.tooltip-inner {
 
-/* Add Animation */
-@-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0} 
-    to {top:0; opacity:1}
-}
+        min-width: 180px;
+    }
 
-@keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
-}
+    .msk-set-color-tooltip+.tooltip>.tooltip-inner {
 
-@media only screen and (max-width: 500px) {
-	
-	#divGender1, #divPhone1, #divEmail1{
-		
-	 	width:75%;
-		
-	}
+        min-width: 180px;
+        background-color: red;
+    }
 
-}
+    .msk-image-error {
+        border: 1px solid #f44336;
 
+    }
+
+    .msk-fade {
+
+        -webkit-animation-name: animatetop;
+        -webkit-animation-duration: 0.4s;
+        animation-name: animatetop;
+        animation-duration: 0.4s
+    }
+
+    /* Add Animation */
+    @-webkit-keyframes animatetop {
+        from {
+            top: -300px;
+            opacity: 0
+        }
+
+        to {
+            top: 0;
+            opacity: 1
+        }
+    }
+
+    @keyframes animatetop {
+        from {
+            top: -300px;
+            opacity: 0
+        }
+
+        to {
+            top: 0;
+            opacity: 1
+        }
+    }
+
+    @media only screen and (max-width: 500px) {
+
+        #divGender1,
+        #divPhone1,
+        #divEmail1 {
+
+            width: 75%;
+
+        }
+
+    }
 </style>
 
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-	<!-- Content Header (Page header) -->
+    <!-- Content Header (Page header) -->
     <section class="content-header">
-    	<h1>
-        	Board of Directors
+        <h1>
+            Board of Directors
             <small>Preview</small>
         </h1>
         <ol class="breadcrumb">
-        	<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="#">Committees</a></li>
-         </ol>
-     </section>
+        </ol>
+    </section>
 
     <!-- Main content -->
     <section class="content">
@@ -95,11 +111,11 @@ if(!isset($_SERVER['HTTP_REFERER'])){
                 <!-- general form elements -->
                 <div class="box box-primary">
                     <div class="box-header with-border">
-																					<h4 style="color:red;font-weight:bold"><?= $teacher_alert ?></h4>
-                                       	 	<div class="row">
+                        <h4 style="color:red;font-weight:bold"><?= $teacher_alert ?></h4>
+                        <div class="row">
                             <div class="col-lg-10">
                                 <h3 class="text-white">Add Board of Directors(Committee)</h3>
-																																
+
                             </div>
                             <div class="col-lg-2">
                                 <h3>
@@ -110,19 +126,19 @@ if(!isset($_SERVER['HTTP_REFERER'])){
                         </div>
                     </div><!-- /.box-header -->
                     <!-- form start //MSK-00097-->
-                    <form role="form" action="" method="POST"  enctype="multipart/form-data" id="form1" class="form-horizontal" >
-                        <div class="box-body" >
-																									<!-- -------- Full Name -------------  -->
+                    <form role="form" action="" method="POST" enctype="multipart/form-data" id="form1" class="form-horizontal">
+                        <div class="box-body">
+                            <!-- -------- Full Name -------------  -->
                             <div class="form-group" id="divFullName"> <!-- full name -->
                                 <div class="col-xs-3">
                                     <label>Full Name*</label>
                                 </div>
                                 <div class="col-xs-9">
-                                    <input type="text" class="form-control" placeholder="Enter full name" name="full_name" id="full_name" autocomplete="off" required>  
-                                </div>                    
+                                    <input type="text" class="form-control" placeholder="Enter full name" name="full_name" id="full_name" autocomplete="off" required>
+                                </div>
                             </div>
-																												<!-- ----------------------- title -----------  -->
-                            <div class="form-group" id="divIName" >
+                            <!-- ----------------------- title -----------  -->
+                            <div class="form-group" id="divIName">
                                 <div class="col-xs-3">
                                     <label>Committee Title*</label>
                                 </div>
@@ -130,30 +146,30 @@ if(!isset($_SERVER['HTTP_REFERER'])){
                                     <input type="text" class="form-control" placeholder="Ex: Bangla Teacher" name="title" id="i_name" autocomplete="off" required>
                                 </div>
                             </div>
-																												<!-- -------- about -------------  -->
-                             <div class="form-group" id="divAddress" >
-                                <div class="col-xs-3" >
+                            <!-- -------- about -------------  -->
+                            <div class="form-group" id="divAddress">
+                                <div class="col-xs-3">
                                     <label>About Committee*</label>
                                 </div>
                                 <div class="col-xs-9">
                                     <!-- <input type="text" class="form-control" placeholder="Enter address" name="address" id="address" autocomplete="off">  -->
-																																				<textarea placeholder="Enter About Teacher" name="about" cols="30" rows="10"  class="form-control" ></textarea>
-                                </div>                     
+                                    <textarea placeholder="Enter About Teacher" name="about" cols="30" rows="10" class="form-control"></textarea>
+                                </div>
                             </div>
-																												<!-- -------- gender -------------  -->
+                            <!-- -------- gender -------------  -->
                             <div class="form-group" id="divGender">
                                 <div class="col-xs-3">
                                     <label>Gender*</label>
                                 </div>
                                 <div class="col-xs-4" id="divGender1">
                                     <select name="gender" class="form-control" id="gender" required>
-                                            <option>Select Gender</option>
-                                            <option>Male</option>
-                                            <option>Female</option>
+                                        <option>Select Gender</option>
+                                        <option>Male</option>
+                                        <option>Female</option>
                                     </select>
                                 </div>
                             </div>
-																												<!-- -------- Number -------------  -->
+                            <!-- -------- Number -------------  -->
                             <div class="form-group" id="divPhone">
                                 <div class="col-xs-3">
                                     <label>Phone Number* </label>
@@ -162,24 +178,24 @@ if(!isset($_SERVER['HTTP_REFERER'])){
                                     <input type="tel" class="form-control" placeholder="123-456-7890" name="phone" id="phone" autocomplete="off" required>
                                 </div>
                             </div>
-																												<!-- -------- email -------------  -->
+                            <!-- -------- email -------------  -->
                             <div class="form-group tt2 " id="divEmail">
                                 <div class="col-xs-3">
                                     <label>Email(Optional)</label>
                                 </div>
                                 <div class="col-xs-6" id="divEmail1">
-                                    <input type="text" class="form-control"  placeholder="Enter valid email address" name="email" id="email" autocomplete="off">
+                                    <input type="text" class="form-control" placeholder="Enter valid email address" name="email" id="email" autocomplete="off">
                                 </div>
                             </div>
-																												<!-- -------- photo -------------  -->
+                            <!-- -------- photo -------------  -->
                             <div class="form-group" id="divPhoto">
                                 <div class="col-xs-3">
                                     <label>Photo*(jpg,png,jpeg file Only)</label>
-                                </div>                            
+                                </div>
                                 <div class="col-xs-3" id="divPhoto1" style="height:150px;">
                                     <img id="output" style="width:130px;height:150px;" />
-																																				<h4><?=$file_error?></h4>
-                                    <input required type="file" name="img" id="fileToUpload" style="margin-top:7px;"  />
+                                    <h4><?= $file_error ?></h4>
+                                    <input required type="file" name="img" id="fileToUpload" style="margin-top:7px;" />
                                 </div>
                             </div>
                         </div><!-- /.box-body -->
@@ -190,4 +206,8 @@ if(!isset($_SERVER['HTTP_REFERER'])){
                 </div><!-- /.box -->
             </div>
         </div>
-    </section><!-- End of form section -->  
+    </section><!-- End of form section -->
+</div>
+
+
+<?php include_once('footer.php'); ?>

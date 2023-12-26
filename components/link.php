@@ -289,7 +289,7 @@
         </div>
         <div class=" card-body">
           <ol>
-            <img decoding="async" src="https://miarhathighschool.com/wp-content/uploads/elementor/thumbs/BD_Govt_HOTLINES-qcy64qdjmyjdj2autl3ylgflq6ivfzztczgz627arg.jpg" title="BD_Govt_HOTLINES" alt="BD_Govt_HOTLINES" loading="lazy" />
+            <img decoding="async" src="backend/view/media/<?= $get_result3['hotline'] ?>" title="BD_Govt_HOTLINES" alt="BD_Govt_HOTLINES" loading="lazy" />
           </ol>
         </div>
       </div>

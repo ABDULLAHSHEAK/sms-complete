@@ -62,21 +62,33 @@
             </li>
 
             <!-- User Account: style can be found in dropdown.less -->
+            <?php
+            include_once('../controller/config.php');
+            $my_index = $_SESSION["index_number"];
+            $my_type = $_SESSION["type"];
+
+            ?>
+            <?php
+            $sql = "SELECT * FROM admin where index_number='$my_index'";
+            $result = mysqli_query($conn, $sql);
+            $row = mysqli_fetch_assoc($result);
+            $image = $row['image_name'];
+            $date = $row['reg_date'];
+            ?>
             <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <img src="" class="user-image" alt="User Image">
+                <img src="users/<?= $image ?>" class="user-image" alt="User Image">
                 <span class="hidden-xs">name</span>
               </a>
               <ul class="dropdown-menu">
                 <!-- User image -->
                 <li class="user-header">
-                  <img src="" class="img-circle" alt="User Image">
+                  <img src="users/<?= $image ?>" class="img-circle" alt="User Image">
 
                   <p>
                     <?php echo 'admin' ?>
                     <?php
-                    // $date = strtotime($row['reg_date']);
-                    echo '<small>' . "Member since " . date('M' . '.' . ' Y') . '</small>';
+                    echo '<small>' . "Member since " . $date . '</small>';
                     ?>
                   </p>
                 </li>

@@ -1,18 +1,16 @@
 <?php include('../controller/config.php'); ?>
 
 <?php
-
 $teacher_alert = "";
 $file_error = '';
 if (isset($_POST['submit'])) {
-
  $full_name = $_POST["full_name"];
  $user_name = $_POST["user_name"];
  $gender = $_POST["gender"];
  $address = $_POST["address"];
  $phone = $_POST["phone"];
  $email = $_POST["email"];
- $password =sha1($_POST["password"]);
+ $password = sha1($_POST["password"]);
  $slug = str_replace(" ", "-", $_POST["full_name"]);
  $get_img_name = $_FILES['img']['name'];
  $tempName = $_FILES['img']['tmp_name'];
@@ -29,7 +27,7 @@ if (isset($_POST['submit'])) {
   if ($run) {
    move_uploaded_file($tempName, $upload);
    $teacher_alert = "User Added Succesfully";
-   header('Location: user.php'); // Redirect should occur before any output
+   header('Location: user.php'); 
   } else {
    echo "error";
   }

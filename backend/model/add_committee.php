@@ -12,12 +12,12 @@ if (isset($_POST['submit'])) {
     $gender = $_POST["gender"];
     $phone = $_POST["phone"];
     $email = $_POST["email"];
-    $slug =str_replace(" ","-", $_POST["full_name"]);
+    $slug = str_replace(" ", "-", $_POST["full_name"]);
     $get_img_name = $_FILES['img']['name'];
     $tempName = $_FILES['img']['tmp_name'];
     $fileNameParts = explode('.', $_FILES['img']['name']);
     $fileExt = end($fileNameParts);
-    $extension = array('jpg','png','jpeg');
+    $extension = array('jpg', 'png', 'jpeg');
 
     if (in_array($fileExt, $extension)) {
         $current_time = date('Y-m-d-H-i-s');
@@ -27,8 +27,8 @@ if (isset($_POST['submit'])) {
         $run = mysqli_query($conn, $query);
         if ($run) {
             move_uploaded_file($tempName, $upload);
-            header('Location: committee.php'); // Redirect should occur before any output
-          		    $teacher_alert = "Teacher Added Succesfully";
+            header('Location: committee.php');
+            $teacher_alert = "Teacher Added Succesfully";
         } else {
             echo "error";
         }

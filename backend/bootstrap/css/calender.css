@@ -1,0 +1,92 @@
+.calendar {
+ padding: 20px;
+ font-size: 20px;
+}
+
+.table_content {
+ background: #fff;
+ border-radius: 8px;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ max-width: 530px;
+ width: 100%;
+ padding: 20px;
+}
+
+/* Customize cell size and background colors */
+
+
+.bg-primary {
+ background-color: #007bff !important;
+ color: white;
+}
+
+.bg-secondary {
+ background-color: #6c757d !important;
+ color: white;
+}
+
+.bg-success {
+ background-color: #28a745 !important;
+ color: white;
+}
+
+.bg-danger {
+ background-color: #dc3545 !important;
+ color: white;
+}
+
+.bg-warning {
+ background-color: #ffc107 !important;
+ color: white;
+}
+
+.bg-info {
+ background-color: #17a2b8 !important;
+ color: white;
+}
+
+.bg-light {
+ background-color: #f8f9fa !important;
+ color: black;
+}
+
+.bg-dark {
+ background-color: #343a40 !important;
+ color: white;
+}
+
+.bg-white {
+ background-color: #fff !important;
+ color: black;
+}
+
+/* Highlight current date */
+.highlight-today {
+ position: relative;
+}
+
+.highlight-today::before {
+ content: '';
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ width: 90%;
+ height: 90%;
+ border-radius: 50%;
+ background-color: #FF6347;
+ /* Tomato color */
+ z-index: -1;
+}
+
+.highlight-today span {
+ position: relative;
+ z-index: 1;
+ font-weight: bold;
+ border-radius: 5px;
+ color: #333 !important;
+ background: #fff;
+ padding: 10px;
+ border: 2px solid red;
+ font-size: 30px !important;
+}

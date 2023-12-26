@@ -1,18 +1,26 @@
+<?php
+include_once('backend/controller/config.php');
+$get_query4 = "SELECT * FROM sidebar_setting";
+$get_run4 = mysqli_query($conn, $get_query4);
+$get_result4 = mysqli_fetch_assoc($get_run4);
+?>
+
 <div class="col-lg-3 main">
   <div class="card">
     <div class="card-body d-flex right-section">
       <div class="sidebar_head">
-        <h6>মোঃ আলি হোসেন - সভাপতি </h6>
-        <img src="images/aa.png" alt="সভাপতি">
+        <h6><?= $get_result4['president_name']; ?> - সভাপতি </h6>
+        <img src="backend/view/media/<?= $get_result4['president_img']; ?>" alt="সভাপতি">
       </div>
-      <div id="teacher name" class="sidebar_head">
-        <h6>মোঃ মনিরুজ্জামান - প্রধান শিক্ষক </h6>
-        <img src="images/principal.png" alt="প্রধান শিক্ষক">
+      <div class="sidebar_head">
+        <h6><?= $get_result4['principal_name']; ?> - প্রধান শিক্ষক </h6>
+        <img src="backend/view/media/<?= $get_result4['principal_img']; ?>" alt="প্রধান শিক্ষক">
       </div>
-      <div id="teacher name" class="sidebar_head">
-        <h6>মোঃ করিম শেখ - সহকারি শিক্ষক</h6>
-        <img src="images/sub-principal.png" alt="সহকারি শিক্ষক">
+      <div class="sidebar_head">
+        <h6><?= $get_result4['sub_principal_name']; ?>- সহকারি শিক্ষক</h6>
+        <img src="backend/view/media/<?= $get_result4['sub_principal_img']; ?>" alt="সহকারি শিক্ষক ">
       </div>
+
       <div id="important link" class="sidebar_head">
         <h6>গুরুত্তপূর্ন লিংক</h6>
         <ul>
@@ -47,7 +55,7 @@
         </ul>
         <div id="teacher name" class="sidebar_head">
           <h6>জরুরী যোগাযোগ</h6>
-          <img src="images/sidebar_hotline.png" alt="">
+          <img src="backend/view/media/<?= $get_result4['info_img'] ?>" alt="">
         </div>
       </div>
     </div>

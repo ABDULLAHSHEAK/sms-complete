@@ -1,5 +1,5 @@
 <?php
-// delete notices start
+// delete Student start
 $student_delete = '';
 include_once('../controller/config.php');
 if (isset($_POST['delete'])) {

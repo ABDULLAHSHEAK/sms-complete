@@ -1,5 +1,5 @@
-<?php 
-// delete notices start
+<?php
+// delete Syllabus start
 $syllabus_delete = '';
 include_once('../controller/config.php');
 if (isset($_POST['delete_syllabus'])) {
@@ -9,9 +9,8 @@ if (isset($_POST['delete_syllabus'])) {
   $routing_delete = mysqli_query($conn, $post_sql);
   if ($routing_delete) {
     unlink("syllabus/" . $syllabus_file);
-     $routing_delete = "Syllabus Delete Succesfull";
+    $routing_delete = "Syllabus Delete Succesfull";
   } else {
     echo "not delete";
   }
 }
-?>

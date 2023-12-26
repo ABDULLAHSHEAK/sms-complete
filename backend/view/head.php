@@ -73,10 +73,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
   <script src="../plugins/daterangepicker/daterangepicker.js"></script>
 
-  <!-- ---- text editor cdn -----  -->
-  <script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>
-
-  <script src="../dist/js/editor.js"></script>
+  <!-- ---- calender css-----  -->
+  <link rel="stylesheet" href="../bootstrap/css/calender.css">
 
   <!-- page script -->
   <script>

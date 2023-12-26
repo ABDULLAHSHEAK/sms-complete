@@ -1,5 +1,5 @@
 <?php
-include_once("header.php"); 
+include_once("header.php");
 ?>
 <div id="pageintro" class="hoc clear">
   <!-- ################################################################################################ -->
@@ -25,18 +25,18 @@ include_once("header.php");
     <section id="introblocks">
       <ul class="nospace group grid-3">
         <li class="one_third">
-          <figure><a class="imgover" href="#"><img src="images/s.jpg" alt=""></a>
-            <figcaption><a href="#">সভাপতি</a></figcaption>
+          <figure><a class="imgover" href="#"><img src="backend/view/media/<?= $get_result3['president'] ?>" alt=""></a>
+            <figcaption><a href="#"><?= $get_result4['president_name']; ?> - সভাপতি</a></figcaption>
           </figure>
         </li>
         <li class="one_third">
-          <figure><a class="imgover" href="#"><img src="images/p.jpg" alt=""></a>
-            <figcaption><a href="#">প্রধান শিক্ষক</a></figcaption>
+          <figure><a class="imgover" href="#"><img src="backend/view/media/<?= $get_result3['principal'] ?>" alt=""></a>
+            <figcaption><a href="#"><?= $get_result4['principal_name']; ?> - প্রধান শিক্ষক</a></figcaption>
           </figure>
         </li>
         <li class="one_third">
-          <figure><a class="imgover" href="#"><img src="images/sub.jpg" alt=""></a>
-            <figcaption><a href="#">সহকারি শিক্ষক </a></figcaption>
+          <figure><a class="imgover" href="#"><img src="backend/view/media/<?= $get_result3['sub_principal'] ?>" alt=""></a>
+            <figcaption><a href="#"><?= $get_result4['sub_principal_name']; ?> - সহকারি শিক্ষক </a></figcaption>
           </figure>
         </li>
       </ul>

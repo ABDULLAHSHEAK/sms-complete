@@ -552,6 +552,7 @@ if($type=="Admin"){
 	$sql="SELECT * FROM admin where index_number='$index'";
 	$result=mysqli_query($conn,$sql);
 	$row=mysqli_fetch_assoc($result);	
+	$image= $row['image_name'];
 }
 
 ?> 
@@ -559,13 +560,13 @@ if($type=="Admin"){
                 <!-- User Account: style can be found in dropdown.less -->
             	<li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                      <img src="../<?php echo $row['image_name']; ?>" class="user-image" alt="User Image">
+                      <img src="users/<?php echo $image ?>" class="user-image" alt="User Image">
                       <span class="hidden-xs"><?php echo $row['i_name']; ?></span>
                     </a>
                     <ul class="dropdown-menu">
                       <!-- User image -->
                       <li class="user-header">
-                        <img src="../<?php echo $row['image_name']; ?>" class="img-circle" alt="User Image">
+                        <img src="users/<?php echo $image; ?>" class="img-circle" alt="User Image">
         
                         <p>
                           <?php echo $row['i_name']; ?> - <?php echo $type; ?>

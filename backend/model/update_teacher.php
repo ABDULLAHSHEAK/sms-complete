@@ -1,131 +1,59 @@
 <?php
-include_once('controller/config.php');
-if(isset($_POST["do"])&&($_POST["do"]=="update_teacher")){
-
-	$id=$_POST['id'];
-	$full_name=$_POST['full_name']; 
-	$i_name=$_POST['i_name']; 
-	$address=$_POST['address']; 
-	$gender=$_POST['gender']; 
-	$phone=$_POST['phone']; 
-	$email=$_POST['email'];
-	
-	$c_page=$_POST['c_page'];//current table page
-	
-	$sql1="SELECT * FROM teacher where email='$email'";	
-	$result1=mysqli_query($conn,$sql1);
-	$row1=mysqli_fetch_assoc($result1);
-	
-	$id1=$row1['id'];
-	$full_name1=$row1['full_name']; 
-	$i_name1=$row1['i_name']; 
-	$address1=$row1['address']; 
-	$gender1=$row1['gender']; 
-	$phone1=$row1['phone']; 
-	$email1=$row1['email'];
-	
-	$target_dir = "uploads/";
-	$name = basename($_FILES["fileToUpload"]["name"]);
-	$size = $_FILES["fileToUpload"]["size"];
-	$type = $_FILES["fileToUpload"]["type"];
-	$tmpname = $_FILES["fileToUpload"]["tmp_name"];
-
-	$max = 31457280;
-	$extention = strtolower(substr($name, strpos($name, ".")+ 1));
-	$filename = date("Ymjhis");
-	
-	$msg=0;//for alerts
-	$image_path = $target_dir.$filename.".".$extention;
- 
-	if($email == $email1 && $id == $id1){//MSK-000143-U-1
-		
-		if($full_name != $full_name1 || $i_name != $i_name1 || $address != $address1 || $gender != $gender1 ||$phone != $phone1 || $name){//MSK-000143-U-2		
-			
-			if(!$name){//MSK-000143-U-3
-				$sql = "update teacher set full_name='".$full_name."',i_name='".$i_name."',address='".$address."',gender='".$gender."',phone='".$phone."' ,email='".$email."' where id='$id'";
-	
-				if(mysqli_query($conn,$sql)){
-								
-					$msg+=1; 
-					//MSK-000143-U-4 The record has been successfully updated in the database
-				}else{
-					$msg+=2; 
-					//MSK-000143-U-5 Connection problem
-				}
-	
-			}else{ //MSK-000143-U-6
-				if(move_uploaded_file($tmpname, $image_path)){ //MSK-000143-U-7
-					$sql = "update teacher set full_name='".$full_name."',i_name='".$i_name."',address='".$address."',gender='".$gender."',phone='".$phone."' ,email='".$email."',image_name='".$image_path."' where id='$id'";
-	
-					if(mysqli_query($conn,$sql)){
-									
-						$msg+=1; 
-						//MSK-000143-U-8 The record has been successfully updated into the database
-					}else{
-						$msg+=2; 
-						//MSK-000143-U-9 Connection problem
-					}
-		
-				}else{
-					//MSK-000143-U-10 If there aren't any folder - "uploads"
-					$msg+=3;  
-				}
-		
-			}
-			
-		}else{
-			//MSK-000143-U-11 You didn't make any changes.:D
-			$msg+=4;
-		}
-	
-	}else if($id != $id1){//MSK-000143-U-12
-	
-		if($email == $email1){
-		
-			//MSK-000143-U-13 The email address is duplicated
-			$msg+=5;
-				
-		}else{//MSK-000143-U-14
-
-			if(!$name){//MSK-000143-U-15
-			
-				$sql = "update teacher set full_name='".$full_name."',i_name='".$i_name."',address='".$address."',gender='".$gender."',phone='".$phone."' ,email='".$email."' where id='$id'";
-
-				if(mysqli_query($conn,$sql)){
-					$msg+=1; 
-					//MSK-000143-U-16 The record has been successfully updated into the database
-				}else{
-					$msg+=2; 
-					//MSK-000143-U-17 Connection problem
-				}
-
-			}else{//MSK-000143-U-18
-			
-				if(move_uploaded_file($tmpname, $image_path)){//MSK-000143-U-19	
-			
-					$sql = "update teacher set full_name='".$full_name."',i_name='".$i_name."',address='".$address."',gender='".$gender."',phone='".$phone."' ,email='".$email."',image_name='".$image_path."' where id='$id'";
-
-					if(mysqli_query($conn,$sql)){
-						$msg+=1; 
-						//MSK-000143-U-20 The record has been successfully updated into the database
-					}else{
-						$msg+=2; 
-						//MSK-000143-U-21 Connection problem
-					}
-	
-				 }else{
-					//MSK-000143-U-22 If there aren't any folder - "uploads"
-					$msg+=3;  
-				 }
-	
-			  }
-	
-		}
-	}else{	
-		
-	}		
-
-	header("Location: view/all_teacher.php?do=alert_from_update&msg=$msg&page=$c_page");//MSK-000143-U-23		
-
+if (isset($_GET['editId'])) {
+ $id = $_GET['editId'];
+ $query = "SELECT * FROM `teacher` WHERE id = '$id'";
+ $run = mysqli_query($conn, $query);
+ $result = mysqli_fetch_assoc($run);
+ $old_img = $result['image_name'];
 }
-?>
+
+$file_error = '';
+if (isset($_POST['update_teacher'])) {
+ $teacher_id = $_POST['edit_id'];
+ $teaher_name = $_POST['full_name'];
+ $teaher_title = $_POST['title'];
+ $teaher_about = $_POST['about'];
+ $teaher_address = $_POST['address'];
+ $teaher_gender = $_POST['gender'];
+ $teaher_phone = $_POST['phone'];
+ $teaher_email = $_POST['email'];
+ 
+ $slug = str_replace(' ', '-', $_POST['full_name']);
+ $get_file_name = $_FILES['img']['name'];
+ $tempName = $_FILES['img']['tmp_name'];
+ $fileNameParts = explode('.', $_FILES['img']['name']);
+ $fileExt = end($fileNameParts);
+ $extension = array('jpg', 'png', 'jpeg');
+
+ // Check if a new PDF file is uploaded
+ if (!empty($get_file_name)) {
+  if (in_array($fileExt, $extension)) {
+   $current_time = date('Y-m-d-H-i-s');
+   $filename = $current_time . '_' . $get_file_name;
+   $upload = 'teacher/' . $filename;
+   $query = "UPDATE teacher SET full_name = '$teaher_name', title = '$teaher_title', about = '$teaher_about', gender = '$teaher_gender', phone = '$teaher_phone', email = '$teaher_email', address = '$teaher_address', image_name = '$filename', slug = '$slug' WHERE id = '$teacher_id' ";
+   $run = mysqli_query($conn, $query);
+
+   if ($run) {
+    $unlink = 'teacher/' . $old_img;
+    unlink($unlink);
+    move_uploaded_file($tempName, $upload);
+    echo "<script>window.location.href='all_teacher.php'</script>";
+   } else {
+    echo "Error updating notice with file.";
+   }
+  } else {
+   $file_error = "File must be a PDF.";
+  }
+ } else {
+  // If no new file is uploaded, update only the title
+  $query = "UPDATE teacher SET full_name = '$teaher_name', title = '$teaher_title', about = '$teaher_about', gender = '$teaher_gender', phone = '$teaher_phone', email = '$teaher_email', address = '$teaher_address', slug = '$slug' WHERE id = '$teacher_id' ";
+  $run = mysqli_query($conn, $query);
+
+  if ($run) {
+   echo "<script>window.location.href='all_teacher.php'</script>";
+  } else {
+   echo "Error updating notice without file.";
+  }
+ }
+}

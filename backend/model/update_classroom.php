@@ -52,19 +52,19 @@ if(isset($_GET["do"])&&($_GET["do"]=="update_classroom")){
 		if($name == $name1){
 			
 			$msg+=4;
-			//MSK-000143-U-8 The classroom is duplicated
+			//The classroom is duplicated
 			
-		}else{//MSK-000143-U-9
+		}else{
 				
 			$sql1 = "update class_room set name='".$name."',student_count='".$student_count."' where id='$id'";
 			if(mysqli_query($conn,$sql1)){
 				
 				$msg+=1;
-				//MSK-000143-U-10 The record has been successfully updated in the database
+				//The record has been successfully updated in the database
 				
 				$sql2="SELECT * FROM class_room where id='$id'";	
 				$result2=mysqli_query($conn,$sql2);
-				$row2=mysqli_fetch_assoc($result2);//MSK-000143-U-11
+				$row2=mysqli_fetch_assoc($result2);
 				
 				$id2=$row2['id'];
 				$name2=$row2['name'];
@@ -73,7 +73,6 @@ if(isset($_GET["do"])&&($_GET["do"]=="update_classroom")){
 							
 			}else{
 				$msg+=2;
-				//MSK-000143-U-12 Connection problem
 			}
 			
 		}

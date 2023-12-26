@@ -4,7 +4,7 @@ $file_error = '';
 if (isset($_POST['add_result'])) {
     $routing_title = $_POST['title'];
     $class = $_POST['class_name'];
-    $slug = str_replace(' ','-', $_POST['title']);
+    $slug = str_replace(' ', '-', $_POST['title']);
     $get_file_name = $_FILES['pdf']['name'];
     $tempName = $_FILES['pdf']['tmp_name'];
     $fileNameParts = explode('.', $_FILES['pdf']['name']);
@@ -19,8 +19,7 @@ if (isset($_POST['add_result'])) {
         $run = mysqli_query($conn, $query);
         if ($run) {
             move_uploaded_file($tempName, $upload);
-            // header('Location: add_notices.php'); // Redirect should occur before any output
-          		    $result_publis_alert = "Result Added Succesfully";
+            $result_publis_alert = "Result Added Succesfully";
         } else {
             echo "error";
         }

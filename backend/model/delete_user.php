@@ -1,5 +1,5 @@
 <?php
-// delete notices start
+// delete Users start
 $user_delete = '';
 include_once('../controller/config.php');
 if (isset($_POST['delete'])) {

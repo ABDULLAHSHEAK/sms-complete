@@ -111,7 +111,6 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
     <!-- general form elements -->
     <div class="box box-primary">
      <div class="box-header with-border">
-      <h4 style="color:red;font-weight:bold"><?= $update ?></h4>
       <div class="row">
        <div class="col-lg-10">
         <h3 class="text-white">School Setting</h3>
@@ -166,7 +165,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
          <label>Principal Name</label>
         </div>
         <div class="col-xs-9">
-         <input type="text" placeholder="Enter Principal Name" name="principal_name" class="form-control" value="<?= $school_data['principal_name']?>">
+         <input type="text" placeholder="Enter Principal Name" name="principal_name" class="form-control" value="<?= $school_data['principal_name'] ?>">
         </div>
        </div>
 
@@ -190,3 +189,5 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
    </div>
   </div>
  </section><!-- End of form section -->
+</div>
+ <?php include_once('footer.php'); ?>

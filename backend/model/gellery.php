@@ -19,7 +19,7 @@ if (isset($_POST['Photo_upload'])) {
         $run = mysqli_query($conn, $query);
         if ($run) {
             move_uploaded_file($tempName, $upload);
-            header('Location: photo_gallery.php'); // Redirect should occur before any output
+            header('Location: photo_gallery.php');
           		    $photo_add = "Photo Added Succesfully";
         } else {
             echo "error";

@@ -134,7 +134,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 								<?php
 
 								include_once('../controller/config.php');
-								$sql = "SELECT * FROM student1 s LEFT JOIN class_room c ON s.class_name = c.id ORDER BY created_at DESC ";
+								$sql = "SELECT * FROM student1 s LEFT JOIN class_room c ON s.class_name = c.id ORDER BY s.created_at DESC ";
 								$result = mysqli_query($conn, $sql);
 								$count = 0;
 								$cant_remove = 0;
@@ -161,9 +161,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 												<div style="display: flex;">
 
 													<div style="margin-right: 5px;">
-														<form action="">
-															<a href="edit_notic.php?editId = <?= $id ?>" class="btn btn-info btn-xs">Edit</a>
-														</form>
+														<a href="edit_student.php?editStudent=<?= $id ?>" class="btn btn-info btn-xs">Edit</a>
 													</div>
 													<!-- ------ delete button --------  -->
 													<div style="margin-right: 5px;">
@@ -176,7 +174,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 													<!-- ------ view button --------  -->
 													<div style="margin-right: 5px;">
 														<form action="">
-															<a href="student_profile.php?student=<?=$student_slug?>" class="btn btn-warning btn-xs">View</a>
+															<a href="student_profile.php?student=<?= $student_slug ?>" class="btn btn-warning btn-xs">View</a>
 														</form>
 													</div>
 
@@ -193,38 +191,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 		</div>
 	</section> <!-- End of table section -->
 
-	<!-- //MSK-00103 Modal-Update form -->
-	<div class="modal msk-fade" id="modalUpdateform" tabindex="-1" role="dialog" aria-labelledby="modalUpdateform" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="container">
-				<div class="row ">
-					<div class="col-md-6">
-						<div class="panel">
-							<div class="panel-heading bg-orange">
-								<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-								<h4 class="modal-title custom_align" id="Heading">Edit Notice</h4>
-							</div>
-							<div class="panel-body"> <!-- Start of modal body-->
-								<div class="form-group" id="divNameUpdate">
-									<label for="">Name</label>
-									<input class="form-control" type="title" id="name1" name="name" value="<?php echo $id ?>" autocomplete="off">
-								</div>
-								<div class="form-group" id="divSCountUpdate">
-									<label for="">Student Count</label>
-									<input class="form-control " type="text" id="student_count1" name="student_count" autocomplete="off" value="<?php echo $name ?>">
-								</div>
-							</div><!--/.modal body-->
-							<div class="panel-footer bg-gray-light">
-								<input type="hidden" name="id" id="id" value="">
-								<button type="button" onClick="Updateclassroom(this)" id="btnSubmit1" class="btn btn-info" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
-							</div><!--/.panel-footer-->
-						</div><!--/.panel-->
-					</div><!--/.col-md-6-->
-				</div><!--/.row-->
-			</div><!-- /.modal-content -->
-		</div><!-- /.modal-dialog -->
-	</div><!--/.Modal-Update form -->
+	
 
-
-	< </div><!-- /.content-wrapper -->
-</div>
+</div><!-- /.content-wrapper -->
+<?php include_once('footer.php'); ?>

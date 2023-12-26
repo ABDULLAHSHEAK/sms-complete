@@ -1,4 +1,4 @@
-<div class="bgded overlay" style="background-image:url('images/demo/inst11.jpg');">
+<div class="bgded overlay" style="background-image:url('backend/view/media/<?= $get_result3['history_bg'] ?>');">
  <section class="hoc container clear">
   <!-- ################################################################################################ -->
   <figure class="one_half first">
@@ -13,6 +13,6 @@
     </li>
    </ul>
   </figure>
-  <div class="one_half last"><a class="imgover" href="#"><img src="images/demo/inst1.jpg" alt=""></a></div>
+  <div class="one_half last"><a class="imgover" href="#"><img src="backend/view/media/<?= $get_result3['history_font'] ?>" alt=""></a></div>
  </section>
 </div>

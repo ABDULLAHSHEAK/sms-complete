@@ -1,6 +1,5 @@
 <?php
 include_once('../controller/config.php');
-$update = '';
 if (isset($_POST['save'])) {
  $site_title = $_POST['site_title'];
  $school_name = $_POST['school_name'];
@@ -20,10 +19,6 @@ if (isset($_POST['save'])) {
  $sql = "UPDATE general_setting SET site_title = '$site_title', school_name = '$school_name', school_address = '$school_address', establish_year = '$established', eiin_no = '$eiin_no', school_code = '$school_code', menu_text = '$menu_text', school_number1 = '$school_number1', school_number2 = '$school_number2', school_email = '$school_email', principal_email = '$principal_email' , website_url = '$website_url', footer = '$footer' , footer_url = '$footer_url'";
  $query = mysqli_query($conn, $sql);
  if ($query) {
-  // echo "<script>alert('Successfully Updated');</script>";
-  $update = "Data update successful";
-  $_SESSION['run'] = 'update';
-  // echo "<script>window.location.href = 'general-setting.php';</script>";
+  echo "<script>alert('Setting Save Successful');</script>";
  }
 }
-?>

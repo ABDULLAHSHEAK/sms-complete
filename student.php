@@ -55,11 +55,9 @@ $offset = ($page - 1) * $limit;
                         <?php
 
                         include_once('backend/controller/config.php');
-                        $sql = "SELECT * FROM student1 s LEFT JOIN class_room c ON s.class_name = c.id ORDER BY created_at DESC limit $limit offset $offset";
+                        $sql = "SELECT * FROM student1 s LEFT JOIN class_room c ON s.class_name = c.id ORDER BY s.created_at DESC limit $limit offset $offset";
                         $result = mysqli_query($conn, $sql);
                         $count = 0;
-                        $cant_remove = 0;
-                        $cant_remove1 = 0;
                         if (mysqli_num_rows($result) > 0) {
                           while ($row = mysqli_fetch_assoc($result)) {
                             $id = $row['id'];

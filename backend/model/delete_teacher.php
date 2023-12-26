@@ -1,5 +1,5 @@
-<?php 
-// delete notices start
+<?php
+// delete Teacher start
 $tc_delete = '';
 include_once('../controller/config.php');
 if (isset($_POST['delete_teacher'])) {
@@ -9,9 +9,8 @@ if (isset($_POST['delete_teacher'])) {
   $notice_delete = mysqli_query($conn, $post_sql);
   if ($notice_delete) {
     unlink("teacher/" . $teacher_img);
-     $tc_delete = "Teacher Delete Succesfull";
+    $tc_delete = "Teacher Delete Succesfull";
   } else {
     echo "not delete";
   }
 }
-?>

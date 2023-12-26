@@ -111,7 +111,6 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
     <!-- general form elements -->
     <div class="box box-primary">
      <div class="box-header with-border">
-      <h4 style="color:red;font-weight:bold"><?= $update ?></h4>
       <div class="row">
        <div class="col-lg-10">
         <h3 class="text-white">General Setting</h3>
@@ -261,10 +260,14 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
        <!-- -------- section end ----------  -->
       </div><!-- /.box-body -->
       <div class="box-footer">
-       <button type="submit" class="btn btn-primary" id="btnSubmit" name="save">Save</button>
+       <button type="submit" class="btn btn-primary" id="btnSubmit" name="save">Save Changes</button>
       </div>
      </form>
     </div><!-- /.box -->
    </div>
   </div>
  </section><!-- End of form section -->
+</div>
+
+
+<?php include_once('footer.php'); ?>

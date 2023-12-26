@@ -164,7 +164,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                   <label>Address</label>
                 </div>
                 <div class="col-xs-9">
-                  <input type="text" class="form-control" placeholder="Teacher Address" name="address" autocomplete="off" >
+                  <input type="text" class="form-control" placeholder="Teacher Address" name="address" autocomplete="off">
                 </div>
               </div>
               <!-- -------- gender -------------  -->
@@ -218,3 +218,5 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
       </div>
     </div>
   </section><!-- End of form section -->
+</div>
+<?php include_once('footer.php'); ?>

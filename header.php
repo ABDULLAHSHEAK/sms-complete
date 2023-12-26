@@ -8,9 +8,13 @@ $get_query2 = "SELECT * FROM school_setting";
 $get_run2 = mysqli_query($conn, $get_query2);
 $get_result2 = mysqli_fetch_assoc($get_run2);
 
-$get_query3 = "SELECT * FROM school_setting";
+$get_query3 = "SELECT * FROM site_image";
 $get_run3 = mysqli_query($conn, $get_query3);
 $get_result3 = mysqli_fetch_assoc($get_run3);
+
+$get_query4 = "SELECT * FROM sidebar_setting";
+$get_run4 = mysqli_query($conn, $get_query4);
+$get_result4 = mysqli_fetch_assoc($get_run4);
 
 ?>
 
@@ -26,7 +30,7 @@ $get_result3 = mysqli_fetch_assoc($get_run3);
   <!-- Latest compiled and minified CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- ------ icone ----------   -->
-  <link rel="icon" type="image/x-icon" href="images/fav1.png">
+  <link rel="icon" type="image/x-icon" href="backend/view/media/<?= $get_result3['fav_icone'] ?>">
 
 </head>
 
@@ -88,12 +92,12 @@ $get_result3 = mysqli_fetch_assoc($get_run3);
         </div>
       </div>
       <div class="col-lg-2 col-12 text-center">
-        <img src="images/home/school-bn.png" alt="gov-image" class="gov_img">
+        <img src="backend/view/media/<?= $get_result3['school_logo'] ?>" alt="gov-image" class="gov_img">
       </div>
     </div>
   </div>
   <!-- menu bar code start -->
-  <div class="bgded overlay padtop" style="background-image:url('images/demo/inst11.jpg');">
+  <div class="bgded overlay padtop" style="background-image:url('backend/view/media/<?= $get_result3['home_bg'] ?>');">
     <header id="header" class="hoc clear">
       <div id="logo" class="fl_left">
         <h1><a href="index.php"><?= $get_result['menu_text'] ?></a></h1>

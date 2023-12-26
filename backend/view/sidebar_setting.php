@@ -215,10 +215,47 @@ $side_data = mysqli_fetch_assoc($result);
          </form>
         </div>
        </div>
+       <!-- ------- name ---------  -->
+       <form action="" method="POST">
 
+        <!-- --------- principal name ------------  -->
+
+        <div class="form-group" id="divFullName"> <!-- full name -->
+         <div class="col-xs-3">
+          <label for="presidentName">President Nane</label>
+         </div>
+         <div class="col-xs-9">
+          <input type="text" class="form-control" name="presidentName" autocomplete="off" value="<?= $side_data['president_name'] ?>">
+         </div>
+        </div>
+
+        <!-- --------- principal name ------------  -->
+        <div class="form-group" id="divFullName"> <!-- full name -->
+         <div class="col-xs-3">
+          <label for="principalName">Principal Nane</label>
+         </div>
+         <div class="col-xs-9">
+          <input type="text" class="form-control" name="principalName" autocomplete="off" value="<?= $side_data['principal_name'] ?>">
+         </div>
+        </div>
+
+        <!-- --------- Sub principal name ------------  -->
+        <div class="form-group" id="divFullName"> <!-- full name -->
+         <div class="col-xs-3">
+          <label for="subPrincipalName">Assistant Principal Nane</label>
+         </div>
+         <div class="col-xs-9">
+          <input type="text" class="form-control" name="subPrincipalName" autocomplete="off" value="<?= $side_data['sub_principal_name'] ?>">
+         </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" name="save_name">Update</button>
+       </form>
       </div><!-- /.box-body -->
      </div>
     </div><!-- /.box -->
    </div>
   </div>
  </section><!-- End of form section -->
+</div>
+ <?php include_once('footer.php'); ?>

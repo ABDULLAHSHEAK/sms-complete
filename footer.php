@@ -1,6 +1,9 @@
 <img src="images/footertopnew.png" alt="">
 <div class="bgded overlay;">
   <!-- ################################################################################################ -->
+  <a href="#" class="view">English View</a>
+  <a href="https://www.facebook.com/masitacademy" class="view buy" target="_blank">Buy Now</a>
+  <!-- ################################################################################################ -->
   <div class="wrapper row5">
     <div id="copyright" class="hoc clear">
       <!-- ################################################################################################ -->
