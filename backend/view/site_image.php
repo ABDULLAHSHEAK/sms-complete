@@ -254,7 +254,6 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
         </div>
        </div>
 
-
        <!-- -------- History Background-img  -------------  -->
        <div class="setting">
         <div class="form-group" id="divPhoto">
@@ -274,7 +273,6 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
          </form>
         </div>
        </div>
-
 
        <!-- -------- History font-img  -------------  -->
        <div class="setting">
@@ -296,7 +294,6 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
         </div>
        </div>
 
-
        <!-- -------- Info/Hotline img -------------  -->
        <div class="setting">
         <div class="form-group" id="divPhoto">
@@ -316,12 +313,8 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
          </form>
         </div>
        </div>
-
-
       </div><!-- /.box-body -->
      </div>
-
-
     </div><!-- /.box -->
    </div>
   </div>

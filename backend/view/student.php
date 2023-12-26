@@ -246,7 +246,6 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 										while ($classResult = mysqli_fetch_assoc($classRun)) {
 										?>
 											<option value="<?= $classResult['id'] ?>"><?= $classResult['name'] ?></option>
-
 										<?php } ?>
 									</select>
 								</div>
@@ -272,5 +271,4 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 		</div>
 	</section><!-- End of form section -->
 </div>
-
 <?php include_once('footer.php'); ?>

@@ -238,7 +238,6 @@ $side_data = mysqli_fetch_assoc($result);
           <input type="text" class="form-control" name="principalName" autocomplete="off" value="<?= $side_data['principal_name'] ?>">
          </div>
         </div>
-
         <!-- --------- Sub principal name ------------  -->
         <div class="form-group" id="divFullName"> <!-- full name -->
          <div class="col-xs-3">
@@ -248,7 +247,6 @@ $side_data = mysqli_fetch_assoc($result);
           <input type="text" class="form-control" name="subPrincipalName" autocomplete="off" value="<?= $side_data['sub_principal_name'] ?>">
          </div>
         </div>
-
         <button type="submit" class="btn btn-primary" name="save_name">Update</button>
        </form>
       </div><!-- /.box-body -->
